@@ -5,7 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>문의하기</title>
 </head>
-<body>
+<hr>
+
+<h2>메일 주소 직접 복사</h2>
+<p id="emailText">YOUR_EMAIL@domain.com</p>
+
+<button onclick="copyEmail()">메일 주소 복사</button>
+<span id="copyMsg" style="margin-left:10px;"></span>
+
+<script>
+  function copyEmail() {
+    const email = document.getElementById('emailText').innerText;
+    navigator.clipboard.writeText(email).then(() => {
+      document.getElementById('copyMsg').innerText = '복사됨!';
+    }).catch(() => {
+      document.getElementById('copyMsg').innerText = '복사 실패(브라우저 권한 확인)';
+    });
+  }
+</script>
+  <body>
   <h1>문의하기</h1>
 
   <p>아래 버튼을 누르면 메일 앱이 열립니다.</p>
