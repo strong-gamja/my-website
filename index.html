@@ -1,78 +1,396 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rack Korea | 홈페이지</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rack Korea 전동랙 솔루션 - 스마트 물류의 시작</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+    body { font-family: 'Noto Sans KR', sans-serif; scroll-behavior: smooth; }
+    .navy-bg { background-color: #0f172a; }
+    .navy-text { color: #0f172a; }
+    .orange-bg { background-color: #f97316; }
+    .orange-text { color: #f97316; }
+    .orange-border { border-color: #f97316; }
+
+    .hero-section {
+      background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.82)),
+                  url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      transition: all 0.25s ease;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+    }
+  </style>
 </head>
-<meta name="description" content="Rack Korea - 전동랙/파렛트랙 설계·제작·설치 및 WMS/WCS 연동 솔루션" />
-<meta property="og:title" content="Rack Korea" />
-<meta property="og:description" content="창고 공간을 더 많이, 운영은 더 쉽게." />
-  <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <span>Rack Korea</span>
+
+<body class="bg-gray-50">
+
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20 items-center">
+
+        <!-- Brand -->
+        <a href="#home" class="flex items-center">
+          <span class="text-2xl font-bold navy-text flex items-center">
+            <i class="fas fa-layer-group orange-text mr-2"></i>
+            RACK<span class="orange-text">KOREA</span>
+          </span>
+        </a>
+
+        <!-- Desktop menu -->
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-8">
+            <a href="#home" class="navy-text hover:text-orange-500 font-medium">홈</a>
+            <a href="#about" class="navy-text hover:text-orange-500 font-medium">전동랙 소개</a>
+            <a href="#cases" class="navy-text hover:text-orange-500 font-medium">설치사례</a>
+            <a href="#contact" class="px-5 py-2 orange-bg text-white rounded-full font-bold hover:bg-orange-600 transition">문의하기</a>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button class="navy-text p-2" onclick="toggleMenu()">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+        </div>
       </div>
-      <nav class="menu">
-        <a href="index.html">홈</a>
-        <a href="about.html">회사소개</a>
-        <a href="services.html">서비스</a>
-        <a href="portfolio.html">사례</a>
-        <a href="contact.html">문의</a>
-      </nav>
+
+      <!-- Mobile menu panel -->
+      <div id="mobileMenu" class="md:hidden hidden pb-4">
+        <div class="flex flex-col gap-3 pt-2">
+          <a href="#home" class="py-2 navy-text font-medium" onclick="closeMenu()">홈</a>
+          <a href="#about" class="py-2 navy-text font-medium" onclick="closeMenu()">전동랙 소개</a>
+          <a href="#cases" class="py-2 navy-text font-medium" onclick="closeMenu()">설치사례</a>
+          <a href="#contact" class="py-2 font-bold orange-text" onclick="closeMenu()">문의하기</a>
+        </div>
+      </div>
+
     </div>
-  </header>
+  </nav>
 
-  <main class="container">
-    <section class="hero">
-      <h1>창고 공간을 더 많이, 운영은 더 쉽게.</h1>
-      <p>Rack Korea는 전동랙/파렛트랙 기반 저장·이송 설비와 WMS/WCS 연동까지, 현장에 맞는 최적 솔루션을 제공합니다.</p>
-
-      <div class="cta">
-        <a class="btn primary" href="contact.html">견적/상담 문의</a>
-        <a class="btn" href="portfolio.html">설치사례 보기</a>
+  <!-- Hero Section -->
+  <section id="home" class="hero-section min-h-screen flex items-center justify-center text-center text-white pt-20">
+    <div class="max-w-4xl px-4">
+      <h2 class="text-orange-500 text-xl font-bold mb-4 tracking-widest uppercase">Space Efficiency Expert</h2>
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+        창고 면적의 200% 활용,<br>
+        <span class="orange-text">전동랙 시스템</span>으로 실현하십시오
+      </h1>
+      <p class="text-lg md:text-xl mb-10 text-gray-300">
+        고밀도 적재와 안전한 구동을 동시에 만족시키는 물류 혁신.<br>
+        Rack Korea가 현장에 맞는 최적 설계를 제안합니다.
+      </p>
+      <div class="flex flex-col md:flex-row justify-center gap-4">
+        <a href="#contact" class="px-10 py-4 orange-bg text-white rounded-lg font-bold text-lg hover:bg-orange-600 transition shadow-lg">
+          무료 견적 상담
+        </a>
+        <a href="#cases" class="px-10 py-4 border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white hover:text-slate-900 transition">
+          설치 사례 보기
+        </a>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="services">
-      <h2 class="section-title">핵심 서비스</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>설계</h3>
-          <p>현장 조건(하중/통로/온도/동선)을 분석해 레이아웃과 사양을 설계합니다.</p>
+  <!-- Product Intro -->
+  <section id="about" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold navy-text mb-4">왜 전동랙인가?</h2>
+        <div class="w-16 h-1 orange-bg mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-12">
+        <div class="text-center">
+          <div class="w-20 h-20 navy-bg rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-compress-alt text-3xl text-orange-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">극대화된 공간 활용</h3>
+          <p class="text-gray-600">불필요한 통로를 하나로 줄여 동일 면적 대비 최대 2배의 적재가 가능합니다.</p>
         </div>
-        <div class="card">
-          <h3>제작·설치</h3>
-          <p>제작부터 시공, 안전 검수까지 일괄 진행하여 일정과 품질을 관리합니다.</p>
-        </div>
-        <div class="card">
-          <h3>제어·소프트웨어</h3>
-          <p>PLC/센서/모니터링, WMS/WCS 연동까지 확장 가능한 구조로 구축합니다.</p>
-        </div>
-      </div>
-    </section>
 
-    <section>
-      <h2 class="section-title">진행 방식</h2>
-      <div class="list">
-        <div class="item"><div>1) 현장/요구사항 파악</div><small>도면·사진·동선</small></div>
-        <div class="item"><div>2) 설계/견적/일정 제안</div><small>범위 확정</small></div>
-        <div class="item"><div>3) 제작/설치/검수</div><small>오픈</small></div>
-      </div>
-    </section>
+        <div class="text-center">
+          <div class="w-20 h-20 navy-bg rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-shield-alt text-3xl text-orange-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">다중 안전 센서</h3>
+          <p class="text-gray-600">다단계 센서·비상정지·인터록 등 안전을 최우선으로 설계합니다.</p>
+        </div>
 
-    <footer>
-  <div class="container">
-    <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
-      <div>© Rack Korea. All rights reserved.</div>
-      <div style="color:var(--muted)">
-        문의: <a href="mailto:master@rackkorea.co.kr">master@rackkorea.co.kr</a>
+        <div class="text-center">
+          <div class="w-20 h-20 navy-bg rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-cogs text-3xl text-orange-500"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">확장형 제어/연동</h3>
+          <p class="text-gray-600">WMS/WCS 연동, 모니터링/알람, 원격 제어까지 확장 가능합니다.</p>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Installation Cases -->
+  <section id="cases" class="py-24 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold navy-text mb-4">설치 사례</h2>
+          <p class="text-gray-600">검증된 기술력으로 증명된 현장 적용 사례입니다.</p>
+        </div>
+        <a href="#contact" class="mt-4 md:mt-0 orange-text font-bold hover:underline">
+          상담으로 사례 요청 <i class="fas fa-arrow-right ml-1"></i>
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+          <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80"
+               alt="냉동/냉장" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <span class="text-xs font-bold orange-text border orange-border px-2 py-1 rounded">냉동/냉장</span>
+            <h3 class="text-xl font-bold navy-text mt-3 mb-2">A사 냉동 물류 센터</h3>
+            <p class="text-gray-600 text-sm">극저온 환경 대응 구동/안전 설계 적용</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+          <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80"
+               alt="제조/부품" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <span class="text-xs font-bold orange-text border orange-border px-2 py-1 rounded">제조/부품</span>
+            <h3 class="text-xl font-bold navy-text mt-3 mb-2">B정밀 부품 창고</h3>
+            <p class="text-gray-600 text-sm">중량물 적재 기반 구조/구동 사양 최적화</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
+          <img src="https://images.unsplash.com/photo-1493946740644-2d8a1f1a6451?auto=format&fit=crop&w=800&q=80"
+               alt="유통/의류" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <span class="text-xs font-bold orange-text border orange-border px-2 py-1 rounded">유통/의류</span>
+            <h3 class="text-xl font-bold navy-text mt-3 mb-2">C 브랜드 통합센터</h3>
+            <p class="text-gray-600 text-sm">다품종 소량 출고 동선 최적화 설계</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold navy-text mb-6">지금 바로 상담받으세요</h2>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            도면/사진을 보내주시거나 방문을 요청하시면,<br>
+            전문 설계팀이 무상으로 레이아웃과 견적을 제안해 드립니다.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <i class="fas fa-phone-alt orange-text w-10 text-xl"></i>
+              <div>
+                <p class="text-sm text-gray-500">대표 번호</p>
+                <p class="text-lg font-bold">1588-0000</p>
+              </div>
+            </div>
+
+            <div class="flex items-center">
+              <i class="fas fa-envelope orange-text w-10 text-xl"></i>
+              <div>
+                <p class="text-sm text-gray-500">이메일 문의</p>
+                <p class="text-lg font-bold">master@rackkorea.co.kr</p>
+              </div>
+            </div>
+
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt orange-text w-10 text-xl"></i>
+              <div>
+                <p class="text-sm text-gray-500">본사 위치</p>
+                <p class="text-lg font-bold">주소를 여기에 입력</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="px-5 py-3 rounded-lg orange-bg text-white font-bold hover:bg-orange-600 transition"
+               href="mailto:master@rackkorea.co.kr?subject=전동랙%20문의&body=안녕하세요.%0D%0A문의드립니다.%0D%0A%0D%0A-업체명:%0D%0A-담당자:%0D%0A-연락처:%0D%0A-창고규모:%0D%0A-문의내용:%0D%0A">
+              이메일로 문의
+            </a>
+            <button class="px-5 py-3 rounded-lg border border-gray-300 font-bold hover:bg-gray-50 transition"
+                    onclick="copyEmail()">
+              이메일 복사
+            </button>
+            <span id="copyMsg" class="text-gray-500 font-medium"></span>
+          </div>
+        </div>
+
+        <!-- Form (메일로 보내기용: 서버 없이 동작) -->
+        <div class="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-100">
+          <form id="inquiryForm" onsubmit="handleSubmit(event)">
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">업체명</label>
+                <input id="company" type="text" required
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none transition">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">담당자명</label>
+                <input id="manager" type="text" required
+                       class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none transition">
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-1">연락처</label>
+              <input id="phone" type="tel" placeholder="010-0000-0000" required
+                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none transition">
+            </div>
+
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-1">창고 규모 (또는 팔레트 수)</label>
+              <input id="size" type="text" placeholder="예: 300평 또는 2,000 팔레트"
+                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none transition">
+            </div>
+
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-1">문의 상세 내용</label>
+              <textarea id="detail" rows="4"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 outline-none transition"
+                        placeholder="설치 예정 지역이나 궁금하신 점을 남겨주세요."></textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full py-4 orange-bg text-white rounded-lg font-bold text-lg hover:bg-orange-600 transition shadow-md">
+              상담 신청하기 (메일 작성)
+            </button>
+
+            <p class="text-xs text-gray-500 mt-3">
+              * 이 버튼은 서버 전송이 아니라 “메일 작성 화면”을 열어주는 방식입니다.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="navy-bg text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-10">
+        <div class="text-2xl font-bold mb-4 md:mb-0">
+          <span class="text-white flex items-center">
+            <i class="fas fa-layer-group orange-text mr-2"></i>
+            RACK<span class="orange-text">KOREA</span>
+          </span>
+        </div>
+
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition" aria-label="YouTube">
+            <i class="fab fa-youtube text-2xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Instagram">
+            <i class="fab fa-instagram text-2xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Blog">
+            <i class="fas fa-blog text-2xl"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 text-sm text-gray-400">
+        <p class="mb-2">Rack Korea | 이메일: master@rackkorea.co.kr</p>
+        <p class="mb-6">Copyright © Rack Korea. All Rights Reserved.</p>
+        <p class="text-xs">본 페이지는 전동랙 솔루션 소개용 랜딩 페이지입니다.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-[100]">
+    <div class="bg-white p-8 rounded-2xl max-w-sm w-full text-center">
+      <i class="fas fa-check-circle text-6xl text-green-500 mb-4"></i>
+      <h3 class="text-2xl font-bold navy-text mb-2">메일 작성이 열렸습니다</h3>
+      <p class="text-gray-600 mb-6">내용 확인 후 전송만 눌러주세요.</p>
+      <button onclick="closeModal()" class="w-full py-3 orange-bg text-white rounded-lg font-bold">확인</button>
     </div>
   </div>
-</footer>
-  </main>
+
+  <script>
+    function toggleMenu() {
+      const el = document.getElementById('mobileMenu');
+      el.classList.toggle('hidden');
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.add('hidden');
+    }
+
+    // 부드러운 스크롤(모바일 메뉴 닫기 포함)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const targetId = a.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(targetId);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        closeMenu();
+      });
+    });
+
+    function copyEmail() {
+      const email = "master@rackkorea.co.kr";
+      navigator.clipboard.writeText(email).then(() => {
+        document.getElementById('copyMsg').innerText = '복사됨!';
+        setTimeout(()=> document.getElementById('copyMsg').innerText = '', 1500);
+      });
+    }
+
+    // 서버 없이 문의 "메일 작성" 열기
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const company = document.getElementById('company').value.trim();
+      const manager = document.getElementById('manager').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const size = document.getElementById('size').value.trim();
+      const detail = document.getElementById('detail').value.trim();
+
+      const subject = encodeURIComponent(`[전동랙 문의] ${company} / ${manager}`);
+      const body = encodeURIComponent(
+        `안녕하세요. 전동랙 문의드립니다.\n\n` +
+        `- 업체명: ${company}\n` +
+        `- 담당자: ${manager}\n` +
+        `- 연락처: ${phone}\n` +
+        `- 창고 규모: ${size}\n` +
+        `- 문의 내용:\n${detail}\n`
+      );
+
+      // 메일 작성 열기
+      window.location.href = `mailto:master@rackkorea.co.kr?subject=${subject}&body=${body}`;
+
+      // 모달(안내용)
+      document.getElementById('successModal').classList.remove('hidden');
+      document.getElementById('successModal').classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('successModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  </script>
 </body>
 </html>
