@@ -47,13 +47,8 @@ header{
 }
 .menu a:hover{background:rgba(255,255,255,0.06); color:var(--text)}
 
-.hero{
-  padding:56px 0 26px;
-}
-.hero h1{
-  margin:0 0 12px;
-  font-size:40px; line-height:1.15;
-}
+.hero{padding:56px 0 26px;}
+.hero h1{margin:0 0 12px; font-size:40px; line-height:1.15;}
 .hero p{margin:0; color:var(--muted); font-size:16px; max-width:720px}
 
 .grid{
@@ -72,16 +67,15 @@ header{
 .card h3{margin:0 0 8px}
 .card p{margin:0; color:var(--muted); line-height:1.55}
 
-.cta{
-  display:flex; gap:12px; flex-wrap:wrap;
-  margin-top:18px;
-}
+.cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;}
 .btn{
   display:inline-block;
   padding:12px 14px;
   border-radius:12px;
   border:1px solid var(--line);
   background:rgba(255,255,255,0.06);
+  color:var(--text);
+  cursor:pointer;
 }
 .btn.primary{
   background: linear-gradient(90deg, rgba(91,214,255,0.35), rgba(155,107,255,0.25));
@@ -106,18 +100,6 @@ footer{
   color:var(--muted);
   margin-top:40px;
 }
-.form{
-  display:grid; gap:10px;
-}
-.input, textarea{
-  width:100%;
-  padding:12px 12px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,0.04);
-  color:var(--text);
-}
-textarea{min-height:120px; resize:vertical}
 
 @media (max-width: 860px){
   .grid{grid-template-columns: 1fr}
