@@ -15,12 +15,12 @@
     .navy-text { color: #0f172a; }
     .orange-bg { background-color: #f97316; }
     .orange-text { color: #f97316; }
-    .card-hover:hover { transform: translateY(-5px); transition: all 0.25s ease; box-shadow: 0 16px 30px rgba(0,0,0,0.15); }
   </style>
 </head>
+
 <body class="bg-gray-50">
 
-  <!-- Nav 공통 -->
+  <!-- NAV -->
   <nav class="fixed w-full z-50 bg-white shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-20 items-center">
@@ -30,7 +30,6 @@
             RACK<span class="orange-text">KOREA</span>
           </span>
         </a>
-
         <div class="hidden md:block">
           <div class="ml-10 flex items-baseline space-x-8">
             <a href="index.html" class="navy-text hover:text-orange-500 font-medium">홈</a>
@@ -43,146 +42,184 @@
     </div>
   </nav>
 
-  <!-- Content -->
+  <!-- MAIN -->
   <main class="pt-28 pb-20">
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl md:text-4xl font-bold navy-text mb-4">왜 전동랙인가?</h1>
-      <p class="text-gray-600 mb-10 leading-relaxed">
-        전동랙(Mobile Rack)은 통로를 최소화하여 적재 밀도를 극대화하고, 안전한 구동과 운영 효율을 동시에 확보하는 고밀도 보관 시스템입니다.
-      </p>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-xl p-8 border border-gray-100 card-hover">
-          <div class="w-14 h-14 navy-bg rounded-2xl flex items-center justify-center mb-5">
-            <i class="fas fa-compress-alt text-2xl text-orange-500"></i>
+    <!-- ✅ 여기부터가 전동랙 소개 섹션(네가 말한 그거) -->
+    <div id="product" class="py-24 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 01. THE CONCEPT -->
+        <div class="text-center mb-24">
+          <span class="navy-bg text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">01. THE CONCEPT</span>
+          <h2 class="text-4xl md:text-5xl font-bold navy-text mb-8">전동랙(Mobile Pallet Racking)이란?</h2>
+
+          <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            전동랙은 쉽게 말해 <b>“움직이는 도서관 책장”</b>의 창고 버전입니다.<br>
+            평소에는 랙이 밀착해 <b>통로를 없애고 적재 공간을 극대화</b>합니다.<br>
+            필요할 때만 <b>통로 1개를 열어</b> 지게차 작업을 가능하게 합니다.<br><br>
+            즉, 창고에서 가장 많이 낭비되는 <b>‘지게차 통로 면적’을 ‘저장 면적’으로 바꾸는 솔루션</b>입니다.
+          </p>
+
+          <div class="mt-14 bg-white p-8 rounded-3xl shadow-xl inline-block max-w-5xl w-full">
+            <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1200"
+                 alt="전동랙 구동 원리" class="rounded-xl shadow-inner mb-6 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+              <div class="p-4 border-l-4 border-orange-500 bg-orange-50 rounded-xl">
+                <h4 class="font-bold text-slate-900">1. 공간 압축(기본 상태)</h4>
+                <p class="text-sm text-gray-600">모든 랙이 밀착하여 통로를 최소화하고 적재 공간을 최대화합니다.</p>
+              </div>
+              <div class="p-4 border-l-4 border-orange-500 bg-orange-50 rounded-xl">
+                <h4 class="font-bold text-slate-900">2. 통로 개방(필요할 때만)</h4>
+                <p class="text-sm text-gray-600">원하는 위치의 통로 1개만 열어 지게차 접근을 확보합니다.</p>
+              </div>
+              <div class="p-4 border-l-4 border-orange-500 bg-orange-50 rounded-xl">
+                <h4 class="font-bold text-slate-900">3. 안전 작업(센서 보호)</h4>
+                <p class="text-sm text-gray-600">센서/비상정지/인터록 적용으로 안전한 입출고를 지원합니다.</p>
+              </div>
+            </div>
           </div>
-          <h3 class="text-xl font-bold mb-2">공간 효율</h3>
-          <p class="text-gray-600">불필요한 통로를 1개로 줄여 동일 면적 대비 적재량을 크게 늘립니다.</p>
         </div>
 
-        <div class="bg-white rounded-xl p-8 border border-gray-100 card-hover">
-          <div class="w-14 h-14 navy-bg rounded-2xl flex items-center justify-center mb-5">
-            <i class="fas fa-shield-alt text-2xl text-orange-500"></i>
+        <!-- 02. WHY BUY -->
+        <div class="mb-24">
+          <div class="text-center mb-12">
+            <span class="navy-bg text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">02. WHY BUY?</span>
+            <h3 class="text-3xl font-bold navy-text">고정랙과 비교하면 수익이 보입니다</h3>
           </div>
-          <h3 class="text-xl font-bold mb-2">안전 설계</h3>
-          <p class="text-gray-600">센서/인터록/비상정지 등 다중 안전 체계를 적용해 작업자 안전을 강화합니다.</p>
+
+          <div class="grid md:grid-cols-2 gap-0 border-2 border-gray-200 rounded-[40px] overflow-hidden shadow-2xl bg-white">
+            <div class="p-10 md:p-12 flex flex-col items-center">
+              <i class="fas fa-th-large text-gray-300 text-6xl mb-6"></i>
+              <h4 class="text-2xl font-bold text-gray-400 mb-8">일반 고정 파렛트랙</h4>
+              <div class="w-full space-y-6">
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <span class="text-gray-600 font-medium">공간 효율</span>
+                  <span class="font-bold text-gray-500">약 35~45% (통로 다수)</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <span class="text-gray-600 font-medium">임대료/건축비</span>
+                  <span class="font-bold text-red-500">상승 (더 큰 면적 필요)</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <span class="text-gray-600 font-medium">냉동창고 전기료</span>
+                  <span class="font-bold text-red-500">비효율 (냉기 손실↑)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-10 md:p-12 navy-bg text-white flex flex-col items-center relative">
+              <div class="absolute top-6 right-6 orange-bg text-white text-[10px] font-bold px-3 py-1 rounded-full">추천 솔루션</div>
+              <i class="fas fa-shipping-fast orange-text text-6xl mb-6"></i>
+              <h4 class="text-2xl font-bold mb-8">전동 모바일 파렛트랙</h4>
+              <div class="w-full space-y-6">
+                <div class="flex items-center justify-between p-4 bg-slate-900/40 rounded-xl">
+                  <span class="text-gray-300 font-medium">공간 효율</span>
+                  <span class="font-bold orange-text text-lg">약 75~85% (통로 1개)</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-slate-900/40 rounded-xl">
+                  <span class="text-gray-300 font-medium">적재량 증가</span>
+                  <span class="font-bold orange-text text-lg">기존 대비 1.5~2.0배</span>
+                </div>
+                <div class="flex items-center justify-between p-4 bg-slate-900/40 rounded-xl">
+                  <span class="text-gray-300 font-medium">투자 회수(ROI)</span>
+                  <span class="font-bold orange-text text-lg">임대/전기료 절감으로 단축</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-white rounded-xl p-8 border border-gray-100 card-hover">
-          <div class="w-14 h-14 navy-bg rounded-2xl flex items-center justify-center mb-5">
-            <i class="fas fa-cogs text-2xl text-orange-500"></i>
+        <!-- 03. TECHNOLOGY TYPES -->
+        <div class="mb-24">
+          <div class="text-center mb-14">
+            <span class="navy-bg text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">03. TECHNOLOGY TYPES</span>
+            <h3 class="text-3xl font-bold navy-text">설치 환경에 맞는 최적의 타입을 선택하세요</h3>
           </div>
-          <h3 class="text-xl font-bold mb-2">확장성</h3>
-          <p class="text-gray-600">WMS/WCS 연동, 모니터링/알람 등 운영 효율을 높이는 확장이 가능합니다.</p>
+
+          <div class="grid md:grid-cols-2 gap-12">
+            <div class="bg-white rounded-[32px] overflow-hidden shadow-lg border border-gray-100">
+              <div class="relative h-64 bg-gray-200">
+                <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=800"
+                     class="w-full h-full object-cover" alt="매립 레일">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                  <h4 class="text-white text-2xl font-bold">매립형 레일 타입 (Rail Type)</h4>
+                </div>
+              </div>
+              <div class="p-8">
+                <div class="flex items-center text-sm font-bold orange-text mb-4">
+                  <i class="fas fa-star mr-1"></i> 대용량 / 신축 창고 추천
+                </div>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                  바닥을 정밀 가공해 강철 레일을 매립하는 방식입니다. 대형·중부하 현장에서 반복 주행을 하더라도
+                  <b>주행 안정성</b>과 <b>정밀도</b>가 뛰어나 장기간 운영에 유리합니다.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-[32px] overflow-hidden shadow-lg border border-gray-100">
+              <div class="relative h-64 bg-gray-200">
+                <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800"
+                     class="w-full h-full object-cover" alt="노레일 타입">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                  <h4 class="text-white text-2xl font-bold">노레일 타입 (No-Rail Type)</h4>
+                </div>
+              </div>
+              <div class="p-8">
+                <div class="flex items-center text-sm font-bold orange-text mb-4">
+                  <i class="fas fa-bolt mr-1"></i> 빠른 설치 / 임대 창고 추천
+                </div>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                  레일 매립 공사 없이 기존 바닥 위에서 구동하는 방식입니다.
+                  <b>공사 기간</b>과 <b>바닥 훼손</b> 부담이 적어 기존/임대 창고에 유리합니다.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="mt-12 bg-white rounded-xl p-8 border border-gray-100">
-        <h2 class="text-xl font-bold navy-text mb-4">프로젝트 진행</h2>
-        <ol class="space-y-3 text-gray-700">
-          <li><b class="orange-text">1)</b> 현장/요구사항 파악 (도면·사진·동선)</li>
-          <li><b class="orange-text">2)</b> 설계/견적/일정 제안 (범위 확정)</li>
-          <li><b class="orange-text">3)</b> 제작/설치/검수 (시운전)</li>
-          <li><b class="orange-text">4)</b> 운영/유지보수 (개선 지원)</li>
-        </ol>
-      </div>
+        <!-- 04. CTA -->
+        <div class="bg-orange-500 rounded-[40px] p-12 md:p-20 text-center relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <i class="fas fa-warehouse text-[300px] -translate-x-20 -translate-y-20"></i>
+          </div>
+          <div class="relative z-10">
+            <h3 class="text-3xl md:text-5xl font-bold text-white mb-6">
+              설계부터 시공까지,<br>단 2주면 창고가 달라집니다
+            </h3>
+            <p class="text-orange-100 text-lg mb-12 max-w-2xl mx-auto">
+              도면(또는 현장 사진)만 보내주시면 전문 설계팀이<br>
+              <b>적재 시뮬레이션 + 예상 적재량(ROI) 리포트</b>를 무료로 안내해드립니다.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+              <a href="contact.html" class="px-12 py-5 bg-white text-orange-600 rounded-full font-bold text-xl shadow-2xl hover:bg-slate-900 hover:text-white transition transform hover:scale-105">
+                무료 분석 리포트 신청하기
+              </a>
+              <a href="tel:031-351-3985" class="px-12 py-5 border-2 border-white text-white rounded-full font-bold text-xl hover:bg-white hover:text-orange-600 transition">
+                <i class="fas fa-phone-alt mr-2"></i> 031-351-3985
+              </a>
+            </div>
+          </div>
+        </div>
 
-      <div class="mt-10 flex gap-3">
-        <a href="portfolio.html" class="px-6 py-3 rounded-lg border border-gray-300 font-bold hover:bg-gray-50 transition">설치사례 보기</a>
-        <a href="contact.html" class="px-6 py-3 rounded-lg orange-bg text-white font-bold hover:bg-orange-600 transition">상담 문의</a>
       </div>
-    </section>
+    </div>
+    <!-- ✅ 여기까지가 전동랙 소개 섹션 -->
+
   </main>
 
-<footer class="navy-bg text-white">
-  <!-- Top area -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-    <div class="grid gap-10 md:grid-cols-3">
-
-      <!-- Brand -->
-      <div>
-        <div class="text-2xl font-bold mb-4 flex items-center">
-          <i class="fas fa-layer-group orange-text mr-2"></i>
-          RACK<span class="orange-text">KOREA</span>
-        </div>
-        <p class="text-gray-300 leading-relaxed">
-          대한민국 창고의 가치를 높이는 랙/전동랙 물류 시스템 전문 기업입니다.<br>
-          고밀도 적재 솔루션으로 고객의 물류 경쟁력을 강화합니다.
-        </p>
+  <!-- Footer (너가 만든 푸터가 이미 있으면 여기 footer는 그걸로 유지해도 됨) -->
+  <footer class="navy-bg text-white py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="border-t border-gray-800 pt-6 text-sm text-gray-400 space-y-1">
+        <p><span class="text-gray-300 font-semibold">Rack Korea</span></p>
+        <p>전화: <a class="hover:underline text-gray-200" href="tel:031-351-3985">031-351-3985</a></p>
+        <p>이메일: <a class="hover:underline text-gray-200" href="mailto:master@rackkorea.co.kr">master@rackkorea.co.kr</a></p>
+        <p>주소: 경기도 화성시 장안면 신촌길 60-19</p>
+        <p class="pt-3">© 2026 RACKKOREA. All rights reserved.</p>
       </div>
-
-      <!-- Quick links -->
-      <div>
-        <div class="text-orange-500 font-bold tracking-widest mb-4">QUICK LINKS</div>
-        <ul class="space-y-2 text-gray-300">
-          <li><a href="index.html" class="hover:text-white transition">메인 홈</a></li>
-          <li><a href="about.html" class="hover:text-white transition">전동랙 소개</a></li>
-          <li><a href="portfolio.html" class="hover:text-white transition">설치 사례</a></li>
-          <li><a href="contact.html" class="hover:text-white transition">문의하기</a></li>
-        </ul>
-      </div>
-
-      <!-- HQ -->
-      <div>
-        <div class="text-orange-500 font-bold tracking-widest mb-4">HEADQUARTERS</div>
-        <div class="space-y-2 text-gray-300">
-          <div>경기도 화성시 장안면 신촌길 60-19</div>
-          <div>
-            TEL :
-            <a href="tel:031-351-3985" class="hover:text-white transition">031-351-3985</a>
-          </div>
-          <div>
-            EMAIL :
-            <a href="mailto:master@rackkorea.co.kr" class="hover:text-white transition">master@rackkorea.co.kr</a>
-          </div>
-        </div>
-      </div>
-
     </div>
-
-    <!-- Divider -->
-    <div class="border-t border-gray-800 mt-10"></div>
-
-    <!-- Bottom bar -->
-    <div class="pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-sm text-gray-400">
-
-      <!-- Company info -->
-      <div>
-        랙코리아 주식회사 | 대표이사: 정연국
-      </div>
-
-      <!-- Social -->
-      <div class="flex items-center gap-5">
-        <!-- 유튜브 -->
-        <a href="https://www.youtube.com/@%EB%9E%99%EC%BD%94%EB%A6%AC%EC%95%84%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC"
-           target="_blank" rel="noopener"
-           class="hover:text-white transition" aria-label="YouTube">
-          <i class="fab fa-youtube text-2xl"></i>
-        </a>
-
-        <!-- 인스타 -->
-        <a href="https://www.instagram.com/rackkorea?igsh=ZDl2b2liMDU4MWo5&utm_source=qr"
-           target="_blank" rel="noopener"
-           class="hover:text-white transition" aria-label="Instagram">
-          <i class="fab fa-instagram text-2xl"></i>
-        </a>
-
-        <!-- 네이버 블로그 -->
-        <a href="https://blog.naver.com/rackkorea_official"
-           target="_blank" rel="noopener"
-           class="hover:text-white transition" aria-label="Naver Blog">
-          <i class="fas fa-blog text-2xl"></i>
-        </a>
-      </div>
-
-      <!-- Copyright -->
-      <div>
-        © 2026 RACKKOREA. All rights reserved.
-      </div>
-
-    </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>
