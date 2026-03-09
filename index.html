@@ -113,7 +113,7 @@
 <body>
 
   <!-- NAV -->
-  <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b border-gray-100">
+  <nav id="siteNav" class="fixed w-full z-[100] bg-transparent border-b border-transparent transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16 items-center">
 
@@ -121,10 +121,10 @@
           <img src="assets/logo.png" alt="Rack Korea" class="h-11 md:h-12 w-auto block">
             </a>
 
-        <div class="hidden md:flex items-center space-x-8">
-         <a href="index.html" class="font-bold text-base navy-text hover:text-orange-500 transition">홈</a>
-         <a href="about.html" class="font-bold text-base navy-text hover:text-orange-500 transition">제품 소개</a>
-         <a href="portfolio.html" class="font-bold text-base navy-text hover:text-orange-500 transition">설치사례</a>
+       <div id="navMenu" class="hidden md:flex items-center space-x-8">
+         <a href="index.html" class="font-bold text-base hover:text-orange-500 transition">홈</a>
+         <a href="about.html" class="font-bold text-base hover:text-orange-500 transition">제품 소개</a>
+         <a href="portfolio.html" class="font-bold text-base hover:text-orange-500 transition">설치사례</a>
 
         <a href="contact.html" class="px-6 py-2 orange-bg text-white rounded-full font-bold text-base hover:bg-orange-600 transition shadow-md">
           문의하기
@@ -548,6 +548,43 @@
       startAutoSlide();
     });
   </script>
+<script>
+  (function () {
+    const nav = document.getElementById("siteNav");
+    const menu = document.getElementById("navMenu");
+    const threshold = 40;
 
+    function applyNavStyle() {
+      const scrolled = window.scrollY > threshold;
+
+      if (scrolled) {
+        // 스크롤 후: 흰색 바 + 분리
+        nav.classList.remove("bg-transparent", "border-transparent");
+        nav.classList.add("bg-white/90", "backdrop-blur-md", "border-b", "border-gray-100", "shadow-sm");
+
+        if (menu) {
+          menu.querySelectorAll("a").forEach(a => {
+            a.classList.remove("text-white");
+            a.classList.add("navy-text");
+          });
+        }
+      } else {
+        // 스크롤 전: 배경 위에 겹침(투명)
+        nav.classList.add("bg-transparent", "border-transparent");
+        nav.classList.remove("bg-white/90", "backdrop-blur-md", "border-b", "border-gray-100", "shadow-sm");
+
+        if (menu) {
+          menu.querySelectorAll("a").forEach(a => {
+            a.classList.remove("navy-text");
+            a.classList.add("text-white");
+          });
+        }
+      }
+    }
+
+    window.addEventListener("scroll", applyNavStyle);
+    document.addEventListener("DOMContentLoaded", applyNavStyle);
+  })();
+</script>
 </body>
 </html>
