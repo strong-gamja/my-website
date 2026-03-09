@@ -139,57 +139,124 @@
 
       </div>
     </section>
+    
+      <!-- 02. COMPARISON (1번 구조 + 3번 스타일 문구) -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <!-- 02. WHY BUY -->
-    <section class="py-24" style="background: #fff7ed;">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <span class="navy-bg text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">02. WHY BUY?</span>
-          <h3 class="text-3xl font-bold navy-text">고정랙과 비교하면 수익이 보입니다</h3>
-        </div>
+    <!-- 헤더(3번 스타일) -->
+    <div class="text-center mb-14">
+      <p class="text-xs font-extrabold tracking-widest uppercase orange-text">COMPARISON</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold navy-text mt-3">
+        전동랙 vs 고정랙, 무엇이 다를까?
+      </h2>
+      <p class="text-gray-500 mt-4">
+        같은 창고, 어떤 랙을 선택하느냐에 따라 수납량이 크게 달라집니다.
+      </p>
+    </div>
 
-        <div class="grid md:grid-cols-2 gap-0 border-2 border-gray-200 rounded-[40px] overflow-hidden shadow-2xl bg-white">
-          <div class="p-10 md:p-12 flex flex-col items-center">
-            <i class="fas fa-th-large text-gray-300 text-6xl mb-6"></i>
-            <h4 class="text-2xl font-bold text-gray-400 mb-8">일반 고정 파렛트랙</h4>
-            <div class="w-full space-y-6">
-              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                <span class="text-gray-600 font-medium">공간 효율</span>
-                <span class="font-bold text-gray-500">약 35~45% (통로 다수)</span>
-              </div>
-              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                <span class="text-gray-600 font-medium">임대료/건축비</span>
-                <span class="font-bold text-red-500">상승 (더 큰 면적 필요)</span>
-              </div>
-              <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                <span class="text-gray-600 font-medium">냉동창고 전기료</span>
-                <span class="font-bold text-red-500">비효율 (냉기 손실↑)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-10 md:p-12 navy-bg text-white flex flex-col items-center relative">
-            <div class="absolute top-6 right-6 orange-bg text-white text-[10px] font-bold px-3 py-1 rounded-full">추천 솔루션</div>
-            <i class="fas fa-shipping-fast orange-text text-6xl mb-6"></i>
-            <h4 class="text-2xl font-bold mb-8">전동 모바일 파렛트랙</h4>
-            <div class="w-full space-y-6">
-              <div class="flex items-center justify-between p-4 bg-slate-900/40 rounded-xl">
-                <span class="text-gray-300 font-medium">공간 효율</span>
-                <span class="font-bold orange-text text-lg">약 75~85% (통로 1개)</span>
-              </div>
-              <div class="flex items-center justify-between p-4 bg-slate-900/40 rounded-xl">
-                <span class="text-gray-300 font-medium">적재량 증가</span>
-                <span class="font-bold orange-text text-lg">기존 대비 1.5~2.0배</span>
-              </div>
-              <div class="flex items-center justify-between p-4 bg-slate-900/40 rounded-xl">
-                <span class="text-gray-300 font-medium">투자 회수(ROI)</span>
-                <span class="font-bold orange-text text-lg">임대/전기료 절감으로 단축</span>
-              </div>
-            </div>
-          </div>
+    <!-- 상단 2개 이미지 카드 -->
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- 전동랙 -->
+      <div class="rounded-[28px] overflow-hidden border border-gray-100 shadow-sm relative">
+        <img
+          src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80"
+          class="w-full h-[240px] md:h-[280px] object-cover"
+          alt="전동식 모바일랙"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
+        <div class="absolute left-6 bottom-6 text-white">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-xs font-extrabold">
+            <i class="fas fa-bolt orange-text"></i> 추천
+          </span>
+          <div class="mt-3 text-2xl font-extrabold">전동식 모바일랙</div>
+          <div class="mt-2 text-sm text-white/90">통로 1개 공유 · 공간 효율 최대</div>
         </div>
       </div>
-    </section>
+
+      <!-- 고정랙 -->
+      <div class="rounded-[28px] overflow-hidden border border-gray-100 shadow-sm relative">
+        <img
+          src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80"
+          class="w-full h-[240px] md:h-[280px] object-cover"
+          alt="고정랙"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent"></div>
+        <div class="absolute left-6 bottom-6 text-white">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 border border-white/20 text-xs font-extrabold">
+            일반
+          </span>
+          <div class="mt-3 text-2xl font-extrabold">고정랙 (FIX RACK)</div>
+          <div class="mt-2 text-sm text-white/90">랙마다 통로 필요 · 공간 효율 제한</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 비교표 -->
+    <div class="mt-10 rounded-[28px] overflow-hidden border border-gray-100 shadow-sm">
+      <!-- 표 헤더 -->
+      <div class="grid grid-cols-3 bg-slate-900 text-white text-sm font-extrabold">
+        <div class="px-6 py-4">비교 항목</div>
+        <div class="px-6 py-4 flex items-center gap-2">
+          <i class="fas fa-bolt orange-text"></i> 전동식 모바일랙
+        </div>
+        <div class="px-6 py-4">고정랙 (FIX RACK)</div>
+      </div>
+
+      <!-- 표 Row -->
+      <div class="divide-y divide-gray-100 bg-white text-sm">
+        <div class="grid grid-cols-3 items-center">
+          <div class="px-6 py-4 font-bold text-gray-700">공간 활용률</div>
+          <div class="px-6 py-4 font-extrabold text-emerald-700">최대 200%</div>
+          <div class="px-6 py-4 text-gray-500">기준 100%</div>
+        </div>
+
+        <div class="grid grid-cols-3 items-center bg-gray-50/60">
+          <div class="px-6 py-4 font-bold text-gray-700">통로 수</div>
+          <div class="px-6 py-4 font-extrabold text-emerald-700">1개 (공유)</div>
+          <div class="px-6 py-4 text-gray-500">랙 수만큼 필요</div>
+        </div>
+
+        <div class="grid grid-cols-3 items-center">
+          <div class="px-6 py-4 font-bold text-gray-700">설치 면적 대비 수납량</div>
+          <div class="px-6 py-4 font-extrabold text-emerald-700">2배 이상</div>
+          <div class="px-6 py-4 text-gray-500">1배</div>
+        </div>
+
+        <div class="grid grid-cols-3 items-center bg-gray-50/60">
+          <div class="px-6 py-4 font-bold text-gray-700">초기 투자 비용</div>
+          <div class="px-6 py-4 text-gray-600">중간~높음</div>
+          <div class="px-6 py-4 text-gray-500">낮음</div>
+        </div>
+
+        <div class="grid grid-cols-3 items-center">
+          <div class="px-6 py-4 font-bold text-gray-700">운영 비용</div>
+          <div class="px-6 py-4 text-gray-600">전기료 소량</div>
+          <div class="px-6 py-4 text-gray-500">없음</div>
+        </div>
+
+        <div class="grid grid-cols-3 items-center bg-gray-50/60">
+          <div class="px-6 py-4 font-bold text-gray-700">작업 속도</div>
+          <div class="px-6 py-4 font-extrabold text-emerald-700">자동화로 빠름</div>
+          <div class="px-6 py-4 text-gray-500">수동 이동</div>
+        </div>
+
+        <div class="grid grid-cols-3 items-center">
+          <div class="px-6 py-4 font-bold text-gray-700">안전 시스템</div>
+          <div class="px-6 py-4 font-extrabold text-emerald-700">다중 센서 자동화</div>
+          <div class="px-6 py-4 text-gray-500">수동 관리</div>
+        </div>
+
+        <div class="grid grid-cols-3 items-center bg-gray-50/60">
+          <div class="px-6 py-4 font-bold text-gray-700">적합 환경</div>
+          <div class="px-6 py-4 font-extrabold text-emerald-700">냉동·냉장 · 고밀도</div>
+          <div class="px-6 py-4 text-gray-500">일반 창고</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <!-- 03. TECHNOLOGY TYPES -->
     <section class="py-24 bg-gray-50">
