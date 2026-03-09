@@ -414,6 +414,91 @@
     </div>
   </div>
 </footer>
+<script>
+  // ===== 페이지 이동 =====
+  function navigateTo(targetId) {
+    document.querySelectorAll(".page-content").forEach(el => {
+      el.classList.remove("active");
+    });
 
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // 모바일 메뉴가 열려있으면 닫기(있을 때만)
+    const mobile = document.getElementById("mobileMenu");
+    if (mobile && !mobile.classList.contains("hidden")) {
+      mobile.classList.add("hidden");
+    }
+  }
+
+  // ===== 모바일 메뉴 토글 (있으면 사용) =====
+  function toggleMenu() {
+    const mobile = document.getElementById("mobileMenu");
+    if (mobile) mobile.classList.toggle("hidden");
+  }
+
+  // ===== Hero Slider =====
+  let currentSlide = 0;
+  let slideTimer = null;
+
+  function setActiveSlide(index) {
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".dot");
+    if (!slides.length) return;
+
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides.forEach((s, i) => s.classList.toggle("active", i === currentSlide));
+    dots.forEach((d, i) => d.classList.toggle("active", i === currentSlide));
+  }
+
+  function moveHeroSlide(index) {
+    stopAutoSlide();
+    setActiveSlide(index);
+    startAutoSlide();
+  }
+
+  function nextSlide() {
+    setActiveSlide(currentSlide + 1);
+  }
+
+  function startAutoSlide() {
+    stopAutoSlide();
+    slideTimer = setInterval(nextSlide, 5000); // 5초마다 자동 전환
+  }
+
+  function stopAutoSlide() {
+    if (slideTimer) clearInterval(slideTimer);
+    slideTimer = null;
+  }
+
+  // ===== 언어 토글 (일단 버튼 표시만) =====
+  function changeLang(lang) {
+    const koBtn = document.getElementById("btn-ko");
+    const enBtn = document.getElementById("btn-en");
+    if (!koBtn || !enBtn) return;
+
+    koBtn.classList.toggle("active", lang === "ko");
+    enBtn.classList.toggle("active", lang === "en");
+
+    // 완전한 영어 페이지로 가려면 추천: /en/ 폴더 방식
+    // if (lang === "en") location.href = "en/index.html";
+    // if (lang === "ko") location.href = "index.html";
+  }
+
+  // ===== 초기화 =====
+  document.addEventListener("DOMContentLoaded", () => {
+    // 초기 페이지: home
+    const home = document.getElementById("home");
+    if (home) home.classList.add("active");
+
+    // 슬라이더 시작
+    setActiveSlide(0);
+    startAutoSlide();
+  });
+</script>
 </body>
 </html>
