@@ -8,21 +8,167 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-    body { font-family: 'Noto Sans KR', sans-serif; }
-    .navy-bg { background-color: #0f172a; }
-    .navy-text { color: #0f172a; }
-    .orange-bg { background-color: #f97316; }
-    .orange-text { color: #f97316; }
-    .orange-border { border-color: #f97316; }
-    .hero-section {
-      background: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.82)),
-                url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');
-      background-size: cover; background-position: center;
-    }
-    .card-hover:hover { transform: translateY(-5px); transition: all 0.25s ease; box-shadow: 0 16px 30px rgba(0,0,0,0.15); }
-  </style>
+ <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            overflow-x: hidden;
+            background-color: #ffffff;
+            color: #0f172a;
+        }
+
+        .navy-bg { background-color: #0f172a; }
+        .navy-text { color: #0f172a; }
+        .orange-bg { background-color: #f97316; }
+        .orange-text { color: #f97316; }
+        
+        /* 1. 메인 히어로 슬라이더 (현대무벡스 스타일) */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 2;
+        }
+
+        .hero-visual {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.5);
+            transform: scale(1.1);
+            transition: transform 10s linear;
+        }
+
+        .hero-slide.active .hero-visual {
+            transform: scale(1);
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 100%;
+            max-width: 1280px;
+            padding: 0 2rem;
+            text-align: left;
+        }
+
+        /* 슬라이드 인디케이터 */
+        .slide-dots {
+            position: absolute;
+            bottom: 40px;
+            right: 10%;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+        }
+
+        .dot {
+            width: 40px;
+            height: 3px;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: #f97316;
+        }
+
+        /* 2. 페이지 전환 애니메이션 */
+        .page-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+        
+        .page-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 3. 설치 사례 그리드 (깔끔한 카드 형태) */
+        .case-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .case-card:hover {
+            transform: translateY(-10px);
+            border-color: #f97316;
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+        }
+
+        /* 4. 언어 토글 */
+        .lang-btn {
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .lang-btn.active {
+            background: #0f172a;
+            color: white;
+            border-color: #0f172a;
+        }
+
+        /* 5. 모달 (여러 사진 노출용) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            display: none;
+            z-index: 1000;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+        }
+        .modal-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ba-bar {
+            height: 10px;
+            background: #f1f5f9;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
 
