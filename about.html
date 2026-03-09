@@ -20,28 +20,59 @@
 
 <body class="bg-gray-50">
 
-  <!-- NAV -->
-  <nav class="fixed w-full z-50 bg-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-20 items-center">
-        <a href="index.html" class="flex items-center">
-          <span class="text-2xl font-bold navy-text flex items-center">
-            <i class="fas fa-layer-group orange-text mr-2"></i>
-            RACK<span class="orange-text">KOREA</span>
-          </span>
-        </a>
+  <!-- NAV (index와 통일) -->
+<nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
 
-        <div class="hidden md:block">
-          <div class="ml-10 flex items-baseline space-x-8">
-            <a href="index.html" class="navy-text hover:text-orange-500 font-medium">홈</a>
-            <a href="about.html" class="orange-text font-bold">전동랙 소개</a>
-            <a href="portfolio.html" class="navy-text hover:text-orange-500 font-medium">설치사례</a>
-            <a href="contact.html" class="px-5 py-2 orange-bg text-white rounded-full font-bold hover:bg-orange-600 transition">문의하기</a>
-          </div>
+      <a href="index.html" class="flex items-center">
+        <img src="assets/logo.png" alt="Rack Korea" class="h-10 md:h-12 w-auto block">
+      </a>
+
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="font-bold text-base navy-text hover:text-orange-500 transition">홈</a>
+        <a href="about.html" class="font-bold text-base orange-text hover:text-orange-500 transition">전동랙 소개</a>
+        <a href="portfolio.html" class="font-bold text-base navy-text hover:text-orange-500 transition">설치사례</a>
+        <a href="contact.html" class="px-6 py-2 orange-bg text-white rounded-full font-bold text-base hover:bg-orange-600 transition shadow-md">문의하기</a>
+
+        <div class="flex items-center space-x-1 border-l pl-6 ml-2 border-gray-200">
+          <button class="px-3 py-2 rounded-lg text-sm font-extrabold bg-slate-900 text-white" type="button">KR</button>
+          <a class="px-3 py-2 rounded-lg text-sm font-extrabold border border-gray-300 text-slate-900 hover:bg-gray-50 transition" href="en/index.html">EN</a>
+        </div>
+      </div>
+
+      <!-- Mobile -->
+      <div class="md:hidden">
+        <button class="p-2 navy-text" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden pb-4">
+      <div class="flex flex-col gap-3 pt-2">
+        <a href="index.html" class="py-2 font-bold navy-text">홈</a>
+        <a href="about.html" class="py-2 font-bold orange-text">전동랙 소개</a>
+        <a href="portfolio.html" class="py-2 font-bold navy-text">설치사례</a>
+        <a href="contact.html" class="py-2 font-bold orange-text">문의하기</a>
+
+        <div class="flex items-center gap-2 pt-2 border-t border-gray-200 mt-2">
+          <button class="px-3 py-2 rounded-lg text-sm font-extrabold bg-slate-900 text-white" type="button">KR</button>
+          <a class="px-3 py-2 rounded-lg text-sm font-extrabold border border-gray-300 text-slate-900 hover:bg-gray-50 transition" href="en/index.html">EN</a>
         </div>
       </div>
     </div>
-  </nav>
+
+  </div>
+</nav>
+
+<script>
+  function toggleMobileMenu() {
+    const el = document.getElementById("mobileMenu");
+    if (el) el.classList.toggle("hidden");
+  }
+</script>
 
   <!-- MAIN -->
   <main class="pt-28 pb-20 bg-white">
@@ -110,7 +141,7 @@
     </section>
 
     <!-- 02. WHY BUY -->
-    <section class="py-24 bg-white">
+    <section class="py-24" style="background: #fff7ed;">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
           <span class="navy-bg text-white px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">02. WHY BUY?</span>
@@ -212,7 +243,7 @@
 
     <!-- 04. CTA -->
     <!-- CERTIFICATION -->
-<section class="py-24 bg-white">
+<section class="py-24" style="background: #fff7ed;">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <p class="text-xs font-extrabold tracking-widest uppercase orange-text">CERTIFICATION</p>
