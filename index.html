@@ -313,65 +313,126 @@
     </div>
   </div>
 </section>
-    <!-- MEDIA CENTER (메인 추가) -->
+    <!-- MEDIA CENTER (레퍼런스 2번 스타일로 교체) -->
 <section class="py-24 bg-gray-50">
-  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-  <!-- 카드 1: YouTube 영상 -->
-  <a href="https://youtu.be/hEt7ZSBKqSs?si=XO83Ir8mRW3N9k8u"
-     target="_blank" rel="noopener"
-     class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition">
-    <div class="relative">
-      <img src="https://img.youtube.com/vi/hEt7ZSBKqSs/hqdefault.jpg"
-           class="w-full h-48 object-cover" alt="YouTube 영상 썸네일">
-      <div class="absolute inset-0 flex items-center justify-center">
-        <div class="w-14 h-14 rounded-full bg-red-600/90 flex items-center justify-center">
-          <i class="fas fa-play text-white text-xl"></i>
-        </div>
+    <!-- 헤더: 왼쪽 타이틀 + 오른쪽 버튼 -->
+    <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-12">
+      <div>
+        <p class="orange-text font-extrabold tracking-widest uppercase">Media Center</p>
+        <h2 class="text-5xl md:text-6xl font-extrabold navy-text leading-[1.05] mt-3">
+          랙코리아의<br>생생한 소식을 만나보세요
+        </h2>
+      </div>
+
+      <div class="flex flex-wrap gap-4 lg:mt-6">
+        <a href="https://www.youtube.com/@%EB%9E%99%EC%BD%94%EB%A6%AC%EC%95%84%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC"
+           target="_blank" rel="noopener"
+           class="px-8 py-4 rounded-full bg-white border border-gray-200 font-extrabold shadow-sm hover:bg-gray-50 transition inline-flex items-center gap-3">
+          유튜브 채널 바로가기
+          <span class="w-7 h-7 rounded-full bg-red-600 flex items-center justify-center">
+            <i class="fab fa-youtube text-white text-sm"></i>
+          </span>
+        </a>
+
+        <a href="https://blog.naver.com/rackkorea_official"
+           target="_blank" rel="noopener"
+           class="px-8 py-4 rounded-full bg-white border border-gray-200 font-extrabold shadow-sm hover:bg-gray-50 transition inline-flex items-center gap-3">
+          블로그 보기
+          <span class="w-7 h-7 rounded-full bg-green-600 flex items-center justify-center">
+            <i class="fas fa-rss text-white text-sm"></i>
+          </span>
+        </a>
       </div>
     </div>
-    <div class="p-6">
-      <p class="text-xs font-extrabold tracking-widest text-red-600 uppercase">YOUTUBE</p>
-      <h3 class="text-xl font-extrabold navy-text mt-2">전동랙 현장 영상</h3>
-      <p class="text-gray-600 mt-2">실제 운영 환경에서 작동 모습을 확인하세요.</p>
-    </div>
-  </a>
 
-  <!-- 카드 2: Blog -->
-  <a href="https://blog.naver.com/rackkorea_official/224204057976"
-     target="_blank" rel="noopener"
-     class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition">
-    <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1200&q=80"
-         class="w-full h-48 object-cover" alt="블로그">
-    <div class="p-6">
-      <p class="text-xs font-extrabold tracking-widest text-green-600 uppercase">BLOG POST</p>
-      <h3 class="text-xl font-extrabold navy-text mt-2">전동랙 관련 블로그 글</h3>
-      <p class="text-gray-600 mt-2">설계/효율/운영 포인트를 글로 정리했습니다.</p>
-    </div>
-  </a>
+    <!-- 카드 3개: 레퍼런스처럼 이미지 크게, 아래 정보 영역 -->
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-  <!-- 카드 3: YouTube Shorts -->
-  <a href="https://youtube.com/shorts/2jipvvDY1IM?si=msw8DdQ1ttGw0Mpg"
-     target="_blank" rel="noopener"
-     class="bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-lg transition">
-    <div class="relative">
-      <img src="https://img.youtube.com/vi/2jipvvDY1IM/hqdefault.jpg"
-           class="w-full h-48 object-cover" alt="YouTube Shorts 썸네일">
-      <div class="absolute inset-0 flex items-center justify-center">
-        <div class="w-14 h-14 rounded-full bg-red-600/90 flex items-center justify-center">
-          <i class="fas fa-play text-white text-xl"></i>
+      <!-- 카드 1: YouTube (영상) -->
+      <a href="https://youtu.be/hEt7ZSBKqSs?si=XO83Ir8mRW3N9k8u"
+         target="_blank" rel="noopener"
+         class="bg-white rounded-[28px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition">
+        <div class="relative">
+          <!-- 유튜브 썸네일 -->
+          <img src="https://img.youtube.com/vi/hEt7ZSBKqSs/maxresdefault.jpg"
+               onerror="this.onerror=null; this.src='https://img.youtube.com/vi/hEt7ZSBKqSs/hqdefault.jpg';"
+               class="w-full h-[260px] object-cover" alt="전동랙 현장 영상">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-lg">
+              <i class="fas fa-play text-white text-xl"></i>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="p-6">
-      <p class="text-xs font-extrabold tracking-widest text-red-600 uppercase">YOUTUBE SHORTS</p>
-      <h3 class="text-xl font-extrabold navy-text mt-2">전동랙 숏츠</h3>
-      <p class="text-gray-600 mt-2">핵심만 빠르게 보는 짧은 영상입니다.</p>
-    </div>
-  </a>
 
-</div>
+        <div class="p-8">
+          <p class="text-xs font-extrabold tracking-widest text-red-600 uppercase">YOUTUBE</p>
+          <h3 class="text-2xl font-extrabold navy-text mt-3 leading-snug">
+            전동랙 현장 영상
+          </h3>
+          <p class="text-gray-600 mt-3 leading-relaxed">
+            실제 운영 환경에서 작동 모습을 확인하세요.
+          </p>
+          <p class="text-sm text-gray-400 mt-5">
+            #냉동창고 #전동랙 #현장실물
+          </p>
+        </div>
+      </a>
 
+      <!-- 카드 2: Blog -->
+      <a href="https://blog.naver.com/rackkorea_official/224204057976"
+         target="_blank" rel="noopener"
+         class="bg-white rounded-[28px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition">
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80"
+               class="w-full h-[260px] object-cover" alt="전동랙 블로그">
+        </div>
+
+        <div class="p-8">
+          <p class="text-xs font-extrabold tracking-widest text-green-600 uppercase">BLOG POST</p>
+          <h3 class="text-2xl font-extrabold navy-text mt-3 leading-snug">
+            전동랙 관련 블로그 글
+          </h3>
+          <p class="text-gray-600 mt-3 leading-relaxed">
+            설계/효율/운영 포인트를 글로 정리했습니다.
+          </p>
+          <p class="text-sm text-gray-400 mt-5">
+            #창고관리 #수익분석 #물류컨설팅
+          </p>
+        </div>
+      </a>
+
+      <!-- 카드 3: YouTube Shorts -->
+      <a href="https://youtube.com/shorts/2jipvvDY1IM?si=msw8DdQ1ttGw0Mpg"
+         target="_blank" rel="noopener"
+         class="bg-white rounded-[28px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition">
+        <div class="relative">
+          <img src="https://img.youtube.com/vi/2jipvvDY1IM/maxresdefault.jpg"
+               onerror="this.onerror=null; this.src='https://img.youtube.com/vi/2jipvvDY1IM/hqdefault.jpg';"
+               class="w-full h-[260px] object-cover" alt="전동랙 숏츠">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-lg">
+              <i class="fas fa-play text-white text-xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8">
+          <p class="text-xs font-extrabold tracking-widest text-red-600 uppercase">YOUTUBE SHORTS</p>
+          <h3 class="text-2xl font-extrabold navy-text mt-3 leading-snug">
+            전동랙 숏츠
+          </h3>
+          <p class="text-gray-600 mt-3 leading-relaxed">
+            핵심만 빠르게 보는 짧은 영상입니다.
+          </p>
+          <p class="text-sm text-gray-400 mt-5">
+            #데이터분석 #ROI #물류혁신
+          </p>
+        </div>
+      </a>
+
+    </div>
   </div>
 </section>
 
