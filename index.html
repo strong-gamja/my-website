@@ -344,91 +344,97 @@
     <!-- 카드 3개: 레퍼런스처럼 이미지 크게, 아래 정보 영역 -->
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-      <!-- 카드 1: YouTube (영상) -->
-      <a href="https://youtu.be/hEt7ZSBKqSs?si=XO83Ir8mRW3N9k8u"
-         target="_blank" rel="noopener"
-         class="bg-white rounded-[28px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition">
-        <div class="relative">
-          <!-- 유튜브 썸네일 -->
-          <img src="https://img.youtube.com/vi/hEt7ZSBKqSs/maxresdefault.jpg"
-               onerror="this.onerror=null; this.src='https://img.youtube.com/vi/hEt7ZSBKqSs/hqdefault.jpg';"
-               class="w-full h-[260px] object-cover" alt="전동랙 현장 영상">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-lg">
-              <i class="fas fa-play text-white text-xl"></i>
-            </div>
-          </div>
+  <!-- 카드 공통: group + hover translate + shadow + 이미지 확대 -->
+  <!-- 카드 1: YouTube 영상 -->
+  <a href="https://youtu.be/hEt7ZSBKqSs?si=XO83Ir8mRW3N9k8u"
+     target="_blank" rel="noopener"
+     class="group bg-white rounded-[28px] overflow-hidden border border-gray-100 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div class="relative overflow-hidden">
+      <img src="https://img.youtube.com/vi/hEt7ZSBKqSs/maxresdefault.jpg"
+           onerror="this.onerror=null; this.src='https://img.youtube.com/vi/hEt7ZSBKqSs/hqdefault.jpg';"
+           class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-105"
+           alt="전동랙 현장 영상">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-lg transition duration-300 group-hover:scale-110">
+          <i class="fas fa-play text-white text-xl"></i>
         </div>
-
-        <div class="p-8">
-          <p class="text-xs font-extrabold tracking-widest text-red-600 uppercase">YOUTUBE</p>
-          <h3 class="text-2xl font-extrabold navy-text mt-3 leading-snug">
-            전동랙 실제 가동 영상
-          </h3>
-          <p class="text-gray-600 mt-3 leading-relaxed">
-          통로 개방 → 안전 감지 → 입출고 작업까지, 현장에서 어떻게 운영되는지
-          <b>작업 흐름 기준</b>으로 확인할 수 있습니다.
-          <p class="text-sm text-gray-400 mt-5">
-            #냉동/냉장 #통로1개 #안전센서 #운영흐름
-          </p>
-        </div>
-      </a>
-
-      <!-- 카드 2: Blog -->
-      <a href="https://blog.naver.com/rackkorea_official/224204057976"
-         target="_blank" rel="noopener"
-         class="bg-white rounded-[28px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition">
-        <div class="relative">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80"
-     class="w-full h-[260px] object-cover" alt="전동랙 블로그">
-        </div>
-
-        <div class="p-8">
-          <p class="text-xs font-extrabold tracking-widest text-green-600 uppercase">BLOG POST</p>
- <h3 class="text-2xl font-extrabold navy-text mt-3 leading-snug">
-  “기둥 때문에 버려지던 공간”을 적재 공간으로
-</h3>
-<p class="text-gray-600 mt-3 leading-relaxed">
-  구조 기둥/간섭 구간으로 인해 랙 배치가 비효율적이던 현장에서,
-  통로를 1개로 줄이고 <b>가용 면적을 적재 면적으로 전환</b>한 실제 설계·시공 사례를 정리했습니다.
-</p>
-<p class="text-sm text-gray-400 mt-5">
-  #설치사례 #경기도 #산업소재 #제조업창고 #기둥간섭 #통로최소화
-</p>
-        </div>
-      </a>
-
-      <!-- 카드 3: YouTube Shorts -->
-      <a href="https://youtube.com/shorts/2jipvvDY1IM?si=msw8DdQ1ttGw0Mpg"
-         target="_blank" rel="noopener"
-         class="bg-white rounded-[28px] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition">
-        <div class="relative">
-          <img src="https://img.youtube.com/vi/2jipvvDY1IM/maxresdefault.jpg"
-               onerror="this.onerror=null; this.src='https://img.youtube.com/vi/2jipvvDY1IM/hqdefault.jpg';"
-               class="w-full h-[260px] object-cover" alt="전동랙 숏츠">
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-lg">
-              <i class="fas fa-play text-white text-xl"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-8">
-          <p class="text-xs font-extrabold tracking-widest text-red-600 uppercase">YOUTUBE SHORTS</p>
-<h3 class="text-2xl font-extrabold navy-text mt-3 leading-snug">
-  15초 핵심: 보관량 2배가 가능한 이유
-</h3>
-<p class="text-gray-600 mt-3 leading-relaxed">
-  전동랙의 핵심은 “통로 최소화”입니다.
-  같은 면적에서 <b>적재 면적을 확보하는 원리</b>를 짧게 요약했습니다.
-</p>
-<p class="text-sm text-gray-400 mt-5">
-  #보관량증대 #통로최소화 #전동랙원리 #핵심요약
-</p>
-        </div>
-      </a>
-
+      </div>
+      <!-- 살짝 어두워지는 오버레이 -->
+      <div class="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/10"></div>
     </div>
+
+    <div class="p-8">
+      <p class="text-xs font-extrabold tracking-widest text-red-600 uppercase">YOUTUBE</p>
+      <h3 class="text-2xl font-extrabold navy-text mt-3 leading-snug">
+        냉동창고 전동랙 실제 가동 영상
+      </h3>
+      <p class="text-gray-600 mt-3 leading-relaxed">
+        통로 개방 → 안전 감지 → 입출고 작업까지, 현장에서 어떻게 운영되는지 작업 흐름 기준으로 확인할 수 있습니다.
+      </p>
+      <p class="text-sm text-gray-400 mt-5">
+        #냉동/냉장 #통로1개 #안전센서 #운영흐름
+      </p>
+    </div>
+  </a>
+
+  <!-- 카드 2: Blog -->
+  <a href="https://blog.naver.com/rackkorea_official/224204057976"
+     target="_blank" rel="noopener"
+     class="group bg-white rounded-[28px] overflow-hidden border border-gray-100 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div class="relative overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80"
+           class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-105"
+           alt="전동랙 블로그">
+      <div class="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/10"></div>
+    </div>
+
+    <div class="p-8">
+      <p class="text-xs font-extrabold tracking-widest text-green-600 uppercase">BLOG POST</p>
+      <h3 class="text-2xl font-extrabold navy-text mt-3 leading-snug">
+        “기둥 때문에 버려지던 공간”을 적재 공간으로 — 경기도 산업소재 제조업 창고 전동랙 설치사례
+      </h3>
+      <p class="text-gray-600 mt-3 leading-relaxed">
+        구조 기둥/간섭 구간으로 랙 배치가 비효율적이던 현장에서 통로를 1개로 줄이고,
+        가용 면적을 적재 면적으로 전환한 실제 설계·시공 사례를 정리했습니다.
+      </p>
+      <p class="text-sm text-gray-400 mt-5">
+        #설치사례 #경기도 #산업소재 #제조업창고 #기둥간섭 #통로최소화
+      </p>
+    </div>
+  </a>
+
+  <!-- 카드 3: YouTube Shorts -->
+  <a href="https://youtube.com/shorts/2jipvvDY1IM?si=msw8DdQ1ttGw0Mpg"
+     target="_blank" rel="noopener"
+     class="group bg-white rounded-[28px] overflow-hidden border border-gray-100 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div class="relative overflow-hidden">
+      <img src="https://img.youtube.com/vi/2jipvvDY1IM/maxresdefault.jpg"
+           onerror="this.onerror=null; this.src='https://img.youtube.com/vi/2jipvvDY1IM/hqdefault.jpg';"
+           class="w-full h-[260px] object-cover transition duration-500 group-hover:scale-105"
+           alt="전동랙 숏츠">
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center shadow-lg transition duration-300 group-hover:scale-110">
+          <i class="fas fa-play text-white text-xl"></i>
+        </div>
+      </div>
+      <div class="absolute inset-0 bg-black/0 transition duration-300 group-hover:bg-black/10"></div>
+    </div>
+
+    <div class="p-8">
+      <p class="text-xs font-extrabold tracking-widest text-red-600 uppercase">YOUTUBE SHORTS</p>
+      <h3 class="text-2xl font-extrabold navy-text mt-3 leading-snug">
+        30초 핵심: 보관량 2배가 가능한 이유
+      </h3>
+      <p class="text-gray-600 mt-3 leading-relaxed">
+        전동랙의 핵심은 “통로 최소화”입니다. 같은 면적에서 적재 면적을 확보하는 원리를 짧게 요약했습니다.
+      </p>
+      <p class="text-sm text-gray-400 mt-5">
+        #보관량증대 #통로최소화 #전동랙원리 #핵심요약
+      </p>
+    </div>
+  </a>
+
+</div>
   </div>
 </section>
 
