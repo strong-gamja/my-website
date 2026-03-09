@@ -21,70 +21,405 @@
 </head>
 
 <body class="bg-gray-50">
-  <nav class="fixed w-full z-50 bg-white shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-20 items-center">
-        <a href="index.html" class="flex items-center">
-          <span class="text-2xl font-bold navy-text flex items-center">
-            <i class="fas fa-layer-group orange-text mr-2"></i>
-            RACK<span class="orange-text">KOREA</span>
-          </span>
-        </a>
-        <div class="hidden md:block">
-          <div class="ml-10 flex items-baseline space-x-8">
-            <a href="index.html" class="navy-text hover:text-orange-500 font-medium">홈</a>
-            <a href="about.html" class="navy-text hover:text-orange-500 font-medium">전동랙 소개</a>
-            <a href="portfolio.html" class="orange-text font-bold">설치사례</a>
-            <a href="contact.html" class="px-5 py-2 orange-bg text-white rounded-full font-bold hover:bg-orange-600 transition">문의하기</a>
+ <main class="pt-24 pb-20 bg-gray-50">
+
+  <!-- 상단 히어로 (좁게) -->
+  <section class="relative overflow-hidden">
+    <div class="bg-gradient-to-b from-slate-900 to-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div class="text-center text-white">
+          <div class="inline-flex px-4 py-2 rounded-full bg-white/10 border border-white/15 text-sm font-extrabold tracking-widest">
+            PORTFOLIO
+          </div>
+          <h1 class="mt-6 text-4xl md:text-6xl font-extrabold leading-tight">
+            검증된 설치 실적<br>
+            <span class="orange-text">고객사 성공 사례</span>
+          </h1>
+          <p class="mt-5 text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            냉동창고부터 물류센터까지, 공간 효율을 극대화한 실제 설치 사례를 소개합니다.
+          </p>
+        </div>
+      </div>
+
+      <!-- 웨이브 -->
+      <svg class="w-full block" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path fill="#f8fafc" d="M0,70 C240,120 480,120 720,80 C960,40 1200,20 1440,40 L1440,120 L0,120 Z"></path>
+      </svg>
+    </div>
+
+    <!-- KPI 4개 -->
+    <div class="bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-center gap-4">
+            <i class="fas fa-building orange-text text-xl"></i>
+            <div>
+              <div class="text-xl font-extrabold navy-text">12+</div>
+              <div class="text-sm text-gray-500 font-bold">전국 설치 현장</div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-center gap-4">
+            <i class="fas fa-chart-line orange-text text-xl"></i>
+            <div>
+              <div class="text-xl font-extrabold navy-text">평균 91%</div>
+              <div class="text-sm text-gray-500 font-bold">공간 효율 향상</div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-center gap-4">
+            <i class="fas fa-shield-halved orange-text text-xl"></i>
+            <div>
+              <div class="text-xl font-extrabold navy-text">100%</div>
+              <div class="text-sm text-gray-500 font-bold">안전 기준 적용</div>
+            </div>
+          </div>
+          <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-center gap-4">
+            <i class="fas fa-headset orange-text text-xl"></i>
+            <div>
+              <div class="text-xl font-extrabold navy-text">24/7</div>
+              <div class="text-sm text-gray-500 font-bold">A/S 지원 체계</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <main class="pt-28 pb-20">
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+  <!-- 필터 탭 -->
+  <section class="pt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-3">
+        <button class="tab-btn active" data-filter="all">전체 <span class="tab-count" id="count-all">0</span></button>
+        <button class="tab-btn" data-filter="cold">냉동/냉장 창고</button>
+        <button class="tab-btn" data-filter="general">일반 물류</button>
+        <button class="tab-btn" data-filter="parts">부품 보관</button>
+        <button class="tab-btn" data-filter="auto">자동차 부품</button>
+        <button class="tab-btn" data-filter="electronics">전자제품</button>
+        <button class="tab-btn" data-filter="food">식품 유통</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 카드 그리드 -->
+  <section class="py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="portfolioGrid" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
+
+      <!-- 페이지네이션 흉내(원하면 나중에 진짜 구현) -->
+      <div class="mt-10 flex justify-center gap-3">
+        <button class="page-btn">&lt;</button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 모달 -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/70 z-[200] p-4">
+    <div class="bg-white rounded-[28px] overflow-hidden w-full max-w-5xl shadow-2xl relative">
+      <button id="modalClose" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center">
+        <i class="fas fa-xmark"></i>
+      </button>
+
+      <div class="relative">
+        <img id="modalMainImg" src="" class="w-full h-[420px] object-cover" alt="사례 이미지">
+        <div class="absolute top-4 left-4 text-white font-extrabold bg-black/50 px-3 py-2 rounded-full" id="modalCounter">1/3</div>
+        <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <div class="absolute left-0 bottom-0 w-full p-6 text-white bg-gradient-to-t from-black/70 to-transparent">
+          <div class="text-sm text-white/80" id="modalMeta">냉동/냉장 · 인천</div>
+          <div class="text-3xl font-extrabold" id="modalTitle">대한냉동</div>
+        </div>
+      </div>
+
+      <div class="p-6 grid md:grid-cols-[120px,1fr] gap-6">
+        <div class="space-y-3" id="thumbs"></div>
         <div>
-          <h1 class="text-3xl md:text-4xl font-bold navy-text mb-3">설치 사례</h1>
-          <p class="text-gray-600">검증된 현장 적용 사례로 기술력을 확인하세요.</p>
-        </div>
-        <a href="contact.html" class="mt-4 md:mt-0 orange-text font-bold hover:underline">
-          상담으로 사례 요청 <i class="fas fa-arrow-right ml-1"></i>
-        </a>
-      </div>
+          <div class="flex flex-wrap gap-2 text-sm mb-4" id="chips"></div>
+          <p class="text-gray-700 leading-relaxed" id="modalDesc"></p>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
-          <img src="assets/photos/case1.png" alt="대표 설치사례" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <span class="text-xs font-bold orange-text border orange-border px-2 py-1 rounded">대표 사례</span>
-            <h3 class="text-xl font-bold navy-text mt-3 mb-2">Rack Korea 설치사례</h3>
-            <p class="text-gray-600 text-sm">현장 조건에 맞춘 레이아웃/구동/안전 설계 적용</p>
-          </div>
-        </div>
-
-        <!-- 샘플 카드(원하면 삭제 가능) -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
-          <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80" alt="제조/부품" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <span class="text-xs font-bold orange-text border orange-border px-2 py-1 rounded">제조/부품</span>
-            <h3 class="text-xl font-bold navy-text mt-3 mb-2">중량물 창고</h3>
-            <p class="text-gray-600 text-sm">강화 프레임·구동 조건 최적화</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-xl overflow-hidden shadow-sm card-hover">
-          <img src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80" alt="냉동/냉장" class="w-full h-48 object-cover">
-          <div class="p-6">
-            <span class="text-xs font-bold orange-text border orange-border px-2 py-1 rounded">냉동/냉장</span>
-            <h3 class="text-xl font-bold navy-text mt-3 mb-2">저온 물류센터</h3>
-            <p class="text-gray-600 text-sm">극저온 환경 대응 사양 적용</p>
+          <div class="mt-6 bg-gray-50 rounded-2xl p-5 border border-gray-100">
+            <div class="text-sm text-gray-500 font-bold mb-2">효율 개선 성과</div>
+            <div class="text-2xl font-extrabold navy-text" id="modalResult">수납 효율 95% 증가</div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+
+</main>
+
+<style>
+  .tab-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 16px; border-radius:9999px;
+    border:1px solid #e5e7eb; background:#fff;
+    font-weight:800; font-size:14px; color:#0f172a;
+    transition:.2s;
+  }
+  .tab-btn:hover{ background:#f8fafc; }
+  .tab-btn.active{
+    background:#0f172a; color:#fff; border-color:#0f172a;
+    box-shadow:0 10px 30px rgba(15,23,42,.15);
+  }
+  .tab-count{
+    background:rgba(255,255,255,.15); color:#fff;
+    padding:2px 8px; border-radius:9999px; font-size:12px;
+  }
+
+  .case-card{
+    border-radius:24px; overflow:hidden; background:#fff;
+    border:1px solid #eef2f7; box-shadow:0 8px 22px rgba(15,23,42,.06);
+    transition:.25s;
+  }
+  .case-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(15,23,42,.12); border-color:#fed7aa; }
+  .case-media{ position:relative; overflow:hidden; }
+  .case-media img{ width:100%; height:220px; object-fit:cover; transition:.35s; }
+  .case-card:hover .case-media img{ transform:scale(1.04); }
+  .badge{
+    position:absolute; top:12px; left:12px;
+    background:rgba(255,255,255,.92); border:1px solid rgba(255,255,255,.6);
+    padding:6px 10px; border-radius:9999px; font-size:12px; font-weight:900;
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .photoBtn{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    opacity:0; transition:.2s;
+  }
+  .case-card:hover .photoBtn{ opacity:1; }
+  .photoBtn span{
+    background:rgba(255,255,255,.92);
+    border:1px solid rgba(255,255,255,.65);
+    padding:10px 16px; border-radius:9999px;
+    font-weight:900; color:#0f172a;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .photoBtn i{ color:#f97316; }
+
+  .page-btn{
+    width:42px; height:42px; border-radius:9999px;
+    border:1px solid #e5e7eb; background:#fff; font-weight:900;
+    transition:.2s;
+  }
+  .page-btn:hover{ background:#f8fafc; }
+  .page-btn.active{ background:#0f172a; color:#fff; border-color:#0f172a; }
+</style>
+
+<script>
+  // ---- 데이터(원하는 만큼 추가 가능) ----
+  const CASES = [
+    {
+      id: 1,
+      cat: "cold",
+      catLabel: "냉동/냉장 창고",
+      city: "인천",
+      title: "대한냉동",
+      desc: "영하 25℃ 냉동창고에 전동랙 설치로 공간 효율을 극대화한 사례입니다.",
+      result: "수납 효율 95% 증가",
+      imgs: [
+        "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80"
+      ],
+      chips: ["냉동/냉장", "인천"]
+    },
+    {
+      id: 2,
+      cat: "general",
+      catLabel: "일반 물류",
+      city: "경기 이천",
+      title: "한국물류센터",
+      desc: "랙 이동 자동화로 피킹 동선과 대기 시간을 줄여 운영 효율을 개선했습니다.",
+      result: "작업 시간 40% 단축",
+      imgs: [
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1600&q=80"
+      ],
+      chips: ["일반 물류", "경기 이천"]
+    },
+    {
+      id: 3,
+      cat: "parts",
+      catLabel: "부품 보관",
+      city: "수원",
+      title: "삼성부품창고",
+      desc: "다양한 규격 부품을 체계적으로 보관/관리하도록 레이아웃을 최적화했습니다.",
+      result: "수납 효율 85% 증가",
+      imgs: [
+        "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80"
+      ],
+      chips: ["부품 보관", "수원"]
+    },
+    {
+      id: 4,
+      cat: "auto",
+      catLabel: "자동차 부품",
+      city: "울산",
+      title: "현대자동차",
+      desc: "대형 자동차 부품 보관을 위한 맞춤형 전동랙 시스템을 적용했습니다.",
+      result: "공간 활용 100% 향상",
+      imgs: [
+        "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80"
+      ],
+      chips: ["자동차 부품", "울산"]
+    },
+    {
+      id: 5,
+      cat: "electronics",
+      catLabel: "전자제품",
+      city: "구미",
+      title: "LG전자",
+      desc: "전자제품 보관 및 출하 프로세스를 최적화해 재고 운영 효율을 개선했습니다.",
+      result: "재고 관리 효율 90% 증가",
+      imgs: [
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80"
+      ],
+      chips: ["전자제품", "구미"]
+    },
+    {
+      id: 6,
+      cat: "food",
+      catLabel: "식품 유통",
+      city: "부산",
+      title: "롯데식품",
+      desc: "식품 안전 기준을 충족하는 위생적인 보관 환경을 구축했습니다.",
+      result: "보관 용량 120% 증가",
+      imgs: [
+        "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80"
+      ],
+      chips: ["식품 유통", "부산"]
+    }
+  ];
+
+  const grid = document.getElementById("portfolioGrid");
+  const modal = document.getElementById("modal");
+  const modalMainImg = document.getElementById("modalMainImg");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalMeta = document.getElementById("modalMeta");
+  const modalDesc = document.getElementById("modalDesc");
+  const modalResult = document.getElementById("modalResult");
+  const modalCounter = document.getElementById("modalCounter");
+  const thumbs = document.getElementById("thumbs");
+  const chipsEl = document.getElementById("chips");
+
+  let currentList = [...CASES];
+  let currentCase = null;
+  let currentIndex = 0;
+
+  function renderCount(){
+    document.getElementById("count-all").innerText = CASES.length;
+  }
+
+  function renderGrid(list){
+    grid.innerHTML = list.map(item => `
+      <div class="case-card" data-id="${item.id}">
+        <div class="case-media">
+          <img src="${item.imgs[0]}" alt="${item.title}">
+          <div class="badge">
+            <i class="fas fa-tag orange-text"></i> ${item.catLabel}
+          </div>
+          <div class="photoBtn">
+            <span><i class="fas fa-image"></i> 사진 보기</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="text-sm text-gray-500 font-bold">${item.city}</div>
+          <div class="text-2xl font-extrabold navy-text mt-1">${item.title}</div>
+          <div class="text-gray-600 mt-3 leading-relaxed">${item.desc}</div>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-sm font-extrabold orange-text">📈 ${item.result}</div>
+            <div class="text-sm font-bold text-gray-400">→ 상세보기</div>
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    // click handlers
+    grid.querySelectorAll(".case-card").forEach(card=>{
+      card.addEventListener("click", ()=> openModal(Number(card.dataset.id)));
+    });
+  }
+
+  function openModal(id){
+    currentCase = CASES.find(x=>x.id===id);
+    currentIndex = 0;
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+    fillModal();
+  }
+
+  function closeModal(){
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+
+  function fillModal(){
+    if(!currentCase) return;
+    modalMainImg.src = currentCase.imgs[currentIndex];
+    modalTitle.innerText = currentCase.title;
+    modalMeta.innerText = `${currentCase.catLabel} · ${currentCase.city}`;
+    modalDesc.innerText = currentCase.desc;
+    modalResult.innerText = currentCase.result;
+    modalCounter.innerText = `${currentIndex+1}/${currentCase.imgs.length}`;
+
+    // thumbs
+    thumbs.innerHTML = currentCase.imgs.map((src, idx)=>`
+      <button class="w-full overflow-hidden rounded-xl border border-gray-200 ${idx===currentIndex ? 'ring-2 ring-orange-400' : ''}" onclick="window.__setIdx(${idx})">
+        <img src="${src}" class="w-full h-20 object-cover">
+      </button>
+    `).join("");
+
+    // chips
+    chipsEl.innerHTML = currentCase.chips.map(c=>`
+      <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-700 font-bold">${c}</span>
+    `).join("");
+  }
+
+  window.__setIdx = (idx)=>{ currentIndex = idx; fillModal(); };
+
+  document.getElementById("modalClose").addEventListener("click", closeModal);
+  modal.addEventListener("click", (e)=>{ if(e.target===modal) closeModal(); });
+
+  document.getElementById("prevBtn").addEventListener("click", ()=>{
+    if(!currentCase) return;
+    currentIndex = (currentIndex - 1 + currentCase.imgs.length) % currentCase.imgs.length;
+    fillModal();
+  });
+  document.getElementById("nextBtn").addEventListener("click", ()=>{
+    if(!currentCase) return;
+    currentIndex = (currentIndex + 1) % currentCase.imgs.length;
+    fillModal();
+  });
+
+  // filter
+  document.querySelectorAll(".tab-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const key = btn.dataset.filter;
+      currentList = (key==="all") ? CASES : CASES.filter(x=>x.cat===key);
+      renderGrid(currentList);
+    });
+  });
+
+  renderCount();
+  renderGrid(CASES);
+</script>
 
 <footer class="navy-bg text-white">
   <!-- Top area -->
