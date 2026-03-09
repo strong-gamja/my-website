@@ -21,7 +21,54 @@
 </head>
 
 <body class="bg-gray-50">
- <main class="pt-24 pb-20 bg-gray-50">
+  <!-- NAV (통일) -->
+<nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+
+      <a href="index.html" class="flex items-center">
+        <img src="assets/logo.png" alt="Rack Korea" class="h-10 md:h-12 w-auto block">
+      </a>
+
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="index.html" class="font-bold text-base navy-text hover:text-orange-500 transition">홈</a>
+        <a href="about.html" class="font-bold text-base navy-text hover:text-orange-500 transition">전동랙 소개</a>
+        <a href="portfolio.html" class="font-bold text-base orange-text hover:text-orange-500 transition">설치사례</a>
+        <a href="contact.html" class="px-6 py-2 orange-bg text-white rounded-full font-bold text-base hover:bg-orange-600 transition shadow-md">문의하기</a>
+
+        <div class="flex items-center space-x-1 border-l pl-6 ml-2 border-gray-200">
+          <button class="px-3 py-2 rounded-lg text-sm font-extrabold bg-slate-900 text-white" type="button">KR</button>
+          <a class="px-3 py-2 rounded-lg text-sm font-extrabold border border-gray-300 text-slate-900 hover:bg-gray-50 transition" href="en/index.html">EN</a>
+        </div>
+      </div>
+
+      <div class="md:hidden">
+        <button class="p-2 navy-text" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden hidden pb-4">
+      <div class="flex flex-col gap-3 pt-2">
+        <a href="index.html" class="py-2 font-bold navy-text">홈</a>
+        <a href="about.html" class="py-2 font-bold navy-text">전동랙 소개</a>
+        <a href="portfolio.html" class="py-2 font-bold orange-text">설치사례</a>
+        <a href="contact.html" class="py-2 font-bold orange-text">문의하기</a>
+
+        <div class="flex items-center gap-2 pt-2 border-t border-gray-200 mt-2">
+          <button class="px-3 py-2 rounded-lg text-sm font-extrabold bg-slate-900 text-white" type="button">KR</button>
+          <a class="px-3 py-2 rounded-lg text-sm font-extrabold border border-gray-300 text-slate-900 hover:bg-gray-50 transition" href="en/index.html">EN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  function toggleMobileMenu(){ const el=document.getElementById("mobileMenu"); if(el) el.classList.toggle("hidden"); }
+</script>
+ <main class="pt-16 pb-20 bg-gray-50">
 
   <!-- 상단 히어로 (좁게) -->
   <section class="relative overflow-hidden">
