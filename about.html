@@ -79,69 +79,74 @@
 </nav>
 
   <script>
-  (function(){
-    const track = document.getElementById("rkTrack");
-    const prev = document.getElementById("rkPrev");
-    const next = document.getElementById("rkNext");
-    const dots = document.querySelectorAll(".rkDot");
-    if(!track || !prev || !next || dots.length === 0) return;
+  (function () {
+  const track = document.getElementById("rkTrack");
+  const prev = document.getElementById("rkPrev");
+  const next = document.getElementById("rkNext");
+  const dots = document.querySelectorAll(".rkDot");
+  if (!track || !prev || !next || dots.length === 0) return;
 
-    const total = dots.length;
-    let idx = 0;
+  const box = track.parentElement;                 // 슬라이더 박스
+  const total = track.querySelectorAll("img").length; // ✅ 이미지 개수로 자동 계산
+  let idx = 0;
 
-    function render(){
-      track.style.transform = `translateX(-${idx * 100}%)`;
-      dots.forEach((d,i)=> d.style.background = (i===idx) ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.4)");
+  // dots 개수가 이미지보다 적으면(실수 방지)
+  // => dots는 '이미지 개수만큼' 있어야 함 (지금 3장이라 dots 3개가 맞음)
+
+  function render() {
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    dots.forEach((d, i) => d.style.background = (i === idx) ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.4)");
+  }
+
+  // ===== Auto Play =====
+  let autoTimer = null;
+
+  function stopAuto() {
+    if (autoTimer) clearInterval(autoTimer);
+    autoTimer = null;
+  }
+
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(() => {
+      idx = (idx + 1) % total;
+      render();
+    }, 3000);
+  }
+
+  function userAction() {
+    stopAuto();
+    setTimeout(startAuto, 3500);
+  }
+
+  // 클릭
+  prev.addEventListener("click", () => { idx = (idx - 1 + total) % total; render(); userAction(); });
+  next.addEventListener("click", () => { idx = (idx + 1) % total; render(); userAction(); });
+  dots.forEach((d, i) => d.addEventListener("click", () => { idx = i; render(); userAction(); }));
+
+  // Hover pause (PC)
+  box.addEventListener("mouseenter", stopAuto);
+  box.addEventListener("mouseleave", startAuto);
+
+  // Swipe (모바일)
+  let startX = null;
+  box.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  box.addEventListener("touchmove", (e) => {
+    if (startX === null) return;
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 40) {
+      idx = dx < 0 ? (idx + 1) % total : (idx - 1 + total) % total;
+      startX = null;
+      render();
+      userAction();
     }
+  }, { passive: true });
+  box.addEventListener("touchend", () => { startX = null; startAuto(); }, { passive: true });
 
-    prev.addEventListener("click", ()=>{ idx = (idx-1+total)%total; render(); userAction(); });
-next.addEventListener("click", ()=>{ idx = (idx+1)%total; render(); userAction(); });
-dots.forEach((d,i)=> d.addEventListener("click", ()=>{ idx=i; render(); userAction(); }));
-    // ===== Auto Play (3초) =====
-let autoTimer = null;
-
-function startAuto(){
-  stopAuto();
-  autoTimer = setInterval(() => {
-    idx = (idx + 1) % total;
-    render();
-  }, 3000);
-}
-
-function stopAuto(){
-  if(autoTimer) clearInterval(autoTimer);
-  autoTimer = null;
-}
-
-function userAction(){
-  stopAuto();
-  setTimeout(startAuto, 3500);
-}
-    
-
-    // swipe
-    let startX = null;
-    const box = track.parentElement;
-
-    box.addEventListener("mouseenter", stopAuto);
-    box.addEventListener("mouseleave", startAuto);
-    
-    box.addEventListener("touchstart", (e)=>{ startX = e.touches[0].clientX; }, {passive:true});
-    box.addEventListener("touchmove", (e)=>{
-      if(startX===null) return;
-      const dx = e.touches[0].clientX - startX;
-      if(Math.abs(dx) > 40){
-        idx = dx < 0 ? (idx+1)%total : (idx-1+total)%total;
-        startX = null;
-        render();
-        userAction();
-      }
-    }, {passive:true});
-    box.addEventListener("touchend", ()=>{ startX = null; }, {passive:true});
-
-    render();
-    startAuto();
-  })();
+  // 초기화
+  render();
+  startAuto();
+})();
 
   function toggleMobileMenu() {
     const el = document.getElementById("mobileMenu");
