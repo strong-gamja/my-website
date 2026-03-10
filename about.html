@@ -94,9 +94,30 @@
       dots.forEach((d,i)=> d.style.background = (i===idx) ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.4)");
     }
 
-    prev.addEventListener("click", ()=>{ idx = (idx-1+total)%total; render(); });
-    next.addEventListener("click", ()=>{ idx = (idx+1)%total; render(); });
-    dots.forEach((d,i)=> d.addEventListener("click", ()=>{ idx=i; render(); }));
+    prev.addEventListener("click", ()=>{ idx = (idx-1+total)%total; render(); userAction(); });
+next.addEventListener("click", ()=>{ idx = (idx+1)%total; render(); userAction(); });
+dots.forEach((d,i)=> d.addEventListener("click", ()=>{ idx=i; render(); userAction(); }));
+    // ===== Auto Play (3초) =====
+let autoTimer = null;
+
+function startAuto(){
+  stopAuto();
+  autoTimer = setInterval(() => {
+    idx = (idx + 1) % total;
+    render();
+  }, 3000);
+}
+
+function stopAuto(){
+  if(autoTimer) clearInterval(autoTimer);
+  autoTimer = null;
+}
+
+function userAction(){
+  stopAuto();
+  setTimeout(startAuto, 3500);
+}
+    
 
     // swipe
     let startX = null;
@@ -109,11 +130,13 @@
         idx = dx < 0 ? (idx+1)%total : (idx-1+total)%total;
         startX = null;
         render();
+        userAction();
       }
     }, {passive:true});
     box.addEventListener("touchend", ()=>{ startX = null; }, {passive:true});
 
     render();
+    startAuto();
   })();
 
   function toggleMobileMenu() {
