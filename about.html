@@ -35,10 +35,21 @@
         <a href="portfolio.html" class="font-bold text-base navy-text hover:text-orange-500 transition">설치사례</a>
         <a href="contact.html" class="px-6 py-2 orange-bg text-white rounded-full font-bold text-base hover:bg-orange-600 transition shadow-md">문의하기</a>
 
-        <div class="flex items-center space-x-1 border-l pl-6 ml-2 border-gray-200">
-          <button class="px-3 py-2 rounded-lg text-sm font-extrabold bg-slate-900 text-white" type="button">KR</button>
-          <a class="px-3 py-2 rounded-lg text-sm font-extrabold border border-gray-300 text-slate-900 hover:bg-gray-50 transition" href="en/index.html">EN</a>
-        </div>
+        <div class="flex items-center gap-2 ml-4">
+         <!-- 지구본(배경 없음) -->
+         <i id="langIcon" class="fas fa-globe text-slate-800 text-base"></i>
+
+         <!-- KR (선택) -->
+         <span id="langKR" class="px-4 py-2 rounded-xl text-sm font-extrabold bg-orange-500 text-white shadow-sm">
+          KR
+         </span>
+
+         <!-- EN (비선택) -->
+         <a id="langEN" href="en/index.html"
+     class="px-4 py-2 rounded-xl text-sm font-extrabold text-slate-800 border border-gray-300 bg-white hover:bg-gray-50 transition">
+    EN
+  </a>
+</div>
       </div>
 
       <!-- Mobile -->
