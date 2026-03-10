@@ -122,6 +122,10 @@ function userAction(){
     // swipe
     let startX = null;
     const box = track.parentElement;
+
+    box.addEventListener("mouseenter", stopAuto);
+    box.addEventListener("mouseleave", startAuto);
+    
     box.addEventListener("touchstart", (e)=>{ startX = e.touches[0].clientX; }, {passive:true});
     box.addEventListener("touchmove", (e)=>{
       if(startX===null) return;
