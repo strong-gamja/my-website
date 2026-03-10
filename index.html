@@ -130,17 +130,17 @@
           문의하기
           </a>
 
-         <div class="flex items-center gap-2 ml-4">
-         <!-- 🌐 아이콘: 배경 없음 -->
-         <i class="fas fa-globe text-white/90 text-base"></i>
+         <div id="langWrap" class="flex items-center gap-2 ml-4">
+  <!-- 지구본: 배경 없음 -->
+  <i id="langIcon" class="fas fa-globe text-white/90 text-base"></i>
 
-          <!-- KR (선택) -->
-          <span class="px-4 py-2 rounded-xl text-sm font-extrabold bg-orange-500 text-white shadow-sm">
-          KR
-          </span>
+  <!-- KR 선택 -->
+  <span id="langKR" class="px-4 py-2 rounded-xl text-sm font-extrabold bg-orange-500 text-white shadow-sm">
+    KR
+  </span>
 
-         <!-- EN (비선택) : 글래스 스타일 + 글씨 선명 -->
-  <a href="en/index.html"
+  <!-- EN 비선택 -->
+  <a id="langEN" href="en/index.html"
      class="px-4 py-2 rounded-xl text-sm font-extrabold text-white border border-white/40 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition">
     EN
   </a>
@@ -612,9 +612,38 @@
       slideTimer = null;
     }
 
+    // ===== KR/EN 버튼 스크롤에 따라 자동 전환 =====
+const threshold = 40;
+
+function applyLangStyle() {
+  const scrolled = window.scrollY > threshold;
+
+  const langIcon = document.getElementById("langIcon");
+  const langEN = document.getElementById("langEN");
+
+  if (scrolled) {
+    // 스크롤 후(네비 흰 배경): 네이비 글씨
+    if (langIcon) langIcon.className = "fas fa-globe navy-text text-base";
+    if (langEN) {
+      langEN.className =
+        "px-4 py-2 rounded-xl text-sm font-extrabold navy-text border border-gray-300 bg-white hover:bg-gray-50 transition";
+    }
+  } else {
+    // 처음(히어로 어두운 배경): 흰 글씨
+    if (langIcon) langIcon.className = "fas fa-globe text-white/90 text-base";
+    if (langEN) {
+      langEN.className =
+        "px-4 py-2 rounded-xl text-sm font-extrabold text-white border border-white/40 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition";
+    }
+  }
+}
+
+// 스크롤 이벤트 연결
+window.addEventListener("scroll", applyLangStyle);
     document.addEventListener("DOMContentLoaded", () => {
       setActiveSlide(0);
       startAutoSlide();
+      applyLangStyle();
     });
   </script>
 <script>
