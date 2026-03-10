@@ -94,8 +94,9 @@
   // => dots는 '이미지 개수만큼' 있어야 함 (지금 3장이라 dots 3개가 맞음)
 
   function render() {
-    track.style.transform = `translateX(-${idx * 100}%)`;
-    dots.forEach((d, i) => d.style.background = (i === idx) ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.4)");
+  const step = 100 / total;
+  track.style.transform = `translateX(-${idx * step}%)`;
+  dots.forEach((d, i) => d.style.background = (i === idx) ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.4)");
   }
 
   // ===== Auto Play =====
@@ -180,7 +181,9 @@
             <!-- LEFT IMAGE -->
             <div class="rounded-[34px] overflow-hidden bg-gray-200 shadow-inner h-[320px] sm:h-[380px] md:h-[440px] lg:h-[520px] relative select-none">
   <!-- track -->
-  <div id="rkTrack" class="absolute inset-0 flex transition-transform duration-300 ease-out">
+  <div id="rkTrack"
+     class="absolute inset-0 flex transition-transform duration-300 ease-out"
+     style="width:300%; height:100%;">
     <img src="assets/assets/photos/slide-01.jpg.jpeg"
      class="w-full h-full object-cover flex-shrink-0" alt="전동랙 이미지 1">
     <img src="assets/assets/photos/slide-02.jpg"
