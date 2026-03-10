@@ -14,25 +14,7 @@
     .navy-bg { background-color: #0f172a; }
     .navy-text { color: #0f172a; }
     .orange-bg { background-color: #f97316; }
-    .orange-text { color: #f97316; 
-            
-    /* 공통 카드 Hover(또로롱) 효과 */
-    .rk-card{
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-      will-change: transform;
-    }
-    .rk-card:hover{
-      transform: translateY(-8px);
-      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.14);
-      border-color: rgba(249, 115, 22, 0.35); /* 주황 테두리 */
-    }
-    .rk-card .rk-img{
-      transition: transform .45s ease;
-    }
-    .rk-card:hover .rk-img{
-      transform: scale(1.05);
-    }}
-    
+    .orange-text { color: #f97316;  
   </style>
 </head>
 
@@ -187,7 +169,7 @@
     <!-- 상단 2개 이미지 카드 -->
     <div class="grid lg:grid-cols-2 gap-8">
       <!-- 전동랙 -->
-      <div class="rounded-[28px] overflow-hidden border border-gray-100 shadow-sm relative">
+      <div class="bg-white rounded-[32px] overflow-hidden shadow-lg border border-gray-100 rk-card">
         <img
           src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80"
           class="w-full h-[240px] md:h-[280px] object-cover"
@@ -204,7 +186,7 @@
       </div>
 
       <!-- 고정랙 -->
-      <div class="rounded-[28px] overflow-hidden border border-gray-100 shadow-sm relative">
+      <div class="bg-white rounded-[32px] overflow-hidden shadow-lg border border-gray-100 rk-card">
         <img
           src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=1600&q=80"
           class="w-full h-[240px] md:h-[280px] object-cover"
