@@ -78,7 +78,44 @@
   </div>
 </nav>
 
-<script>
+  <script>
+  (function(){
+    const track = document.getElementById("rkTrack");
+    const prev = document.getElementById("rkPrev");
+    const next = document.getElementById("rkNext");
+    const dots = document.querySelectorAll(".rkDot");
+    if(!track || !prev || !next || dots.length === 0) return;
+
+    const total = dots.length;
+    let idx = 0;
+
+    function render(){
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d,i)=> d.style.background = (i===idx) ? "rgba(255,255,255,.9)" : "rgba(255,255,255,.4)");
+    }
+
+    prev.addEventListener("click", ()=>{ idx = (idx-1+total)%total; render(); });
+    next.addEventListener("click", ()=>{ idx = (idx+1)%total; render(); });
+    dots.forEach((d,i)=> d.addEventListener("click", ()=>{ idx=i; render(); }));
+
+    // swipe
+    let startX = null;
+    const box = track.parentElement;
+    box.addEventListener("touchstart", (e)=>{ startX = e.touches[0].clientX; }, {passive:true});
+    box.addEventListener("touchmove", (e)=>{
+      if(startX===null) return;
+      const dx = e.touches[0].clientX - startX;
+      if(Math.abs(dx) > 40){
+        idx = dx < 0 ? (idx+1)%total : (idx-1+total)%total;
+        startX = null;
+        render();
+      }
+    }, {passive:true});
+    box.addEventListener("touchend", ()=>{ startX = null; }, {passive:true});
+
+    render();
+  })();
+
   function toggleMobileMenu() {
     const el = document.getElementById("mobileMenu");
     if (el) el.classList.toggle("hidden");
@@ -109,15 +146,37 @@
           <div class="grid lg:grid-cols-2 gap-12 items-center">
 
             <!-- LEFT IMAGE -->
-            <div class="rounded-[34px] overflow-hidden bg-gray-200 shadow-inner h-[320px] sm:h-[380px] md:h-[440px] lg:h-[520px]">
-              <img
-                src="assets/assets/photos/Please_make_it_2k_202601201340.jpeg"
-                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80';"
-                alt="전동랙 작동 이미지"
-                class="w-full h-full object-cover"
-              />
-            </div>
+            <div class="rounded-[34px] overflow-hidden bg-gray-200 shadow-inner h-[320px] sm:h-[380px] md:h-[440px] lg:h-[520px] relative select-none">
+  <!-- track -->
+  <div id="rkTrack" class="absolute inset-0 flex transition-transform duration-300 ease-out">
+    <img src="assets/assets/photos/Please_make_it_2k_202601201340.jpeg"
+         class="w-full h-full object-cover flex-shrink-0" alt="전동랙 이미지 1">
+    <img src="assets/assets/photos/concept.jpg"
+         class="w-full h-full object-cover flex-shrink-0" alt="전동랙 이미지 2"
+         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80';">
+    <img src="assets/assets/photos/norail.jpg"
+         class="w-full h-full object-cover flex-shrink-0" alt="전동랙 이미지 3"
+         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1600&q=80';">
+  </div>
 
+  <!-- left/right buttons -->
+  <button type="button" id="rkPrev"
+          class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+
+  <button type="button" id="rkNext"
+          class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+
+  <!-- dots -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+    <button type="button" class="rkDot w-8 h-1 rounded-full bg-white/40"></button>
+    <button type="button" class="rkDot w-8 h-1 rounded-full bg-white/40"></button>
+    <button type="button" class="rkDot w-8 h-1 rounded-full bg-white/40"></button>
+  </div>
+</div>
             <!-- RIGHT 3 CARDS -->
             <div class="grid gap-5">
               <div class="bg-white rounded-[28px] p-7 shadow-sm border border-gray-100">
